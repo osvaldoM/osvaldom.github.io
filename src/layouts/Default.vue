@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="container mx-auto">
     <header class="header">
       <strong>
         <g-link to="/">{{ $static.metadata.siteName }}</g-link>
