@@ -10,7 +10,7 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'blog/**/*.md',
+        path: 'devnotes/potential-articles/*.md',
         typeName: 'Post',
         remark: {
           // remark options
