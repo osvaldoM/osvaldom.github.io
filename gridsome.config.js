@@ -4,6 +4,16 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const tailwind = require('tailwindcss')
+const purgecss = require('@fullhuman/postcss-purgecss')
+
+const postcssPlugins = [
+  tailwind(),
+]
+
+if (process.env.NODE_ENV === 'production') postcssPlugins.push(purgecss(require('./purgecss.config.js')))
+
+
 module.exports = {
   siteName: 'osvaldom',
   siteDescription: 'Osvaldo\'s online location',
@@ -21,9 +31,6 @@ module.exports = {
         }
       }
     },
-    {
-      use: "gridsome-plugin-tailwindcss",
-    }
   ],
   transformers: {
     remark: {
@@ -38,5 +45,12 @@ module.exports = {
         component: './src/templates/Articlee.vue'
       }
     ]
+  },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: postcssPlugins,
+      },
+    },
   }
 };
