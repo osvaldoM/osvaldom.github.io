@@ -6,14 +6,16 @@
 
 module.exports = {
   siteName: 'osvaldom',
+  siteDescription: 'Osvaldo\'s online location',
   siteUrl: 'https://osvaldom.github.io',
+  titleTemplate: '%s - osvaldom',
   // pathPrefix: '/osvaldom.github.io',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'devnotes/potential-articles/*.md',
-        typeName: 'Post',
+        path: 'devnotes/articles/*.md',
+        typeName: 'Article',
         remark: {
           // remark options
         }
@@ -27,5 +29,14 @@ module.exports = {
     remark: {
       // global remark options
     }
+  },
+  templates: {
+    Article: [
+      {
+        // name: 'single-article',
+        path: '/blog/articles/:id',
+        component: './src/templates/Articlee.vue'
+      }
+    ]
   }
 };

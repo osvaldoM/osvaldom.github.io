@@ -4,8 +4,8 @@
         <p>This is where I drop my random thoughts derived from my everyday experiences</p>
 
         <div class="content">
-                <div v-for="edge in $page.posts.edges" :key="edge.node.id">
-                    <h2><a href="article">{{ edge.node.title }}</a></h2>
+                <div v-for="edge in $page.articles.edges" :key="edge.node.id">
+                    <h2><g-link :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }} </g-link></h2>
                 </div>
         </div>
 
@@ -13,16 +13,16 @@
 </template>
 
 <page-query>
-    query {
-        posts: allPost {
-        edges {
-        node {
+query {
+  articles: allArticle(sortBy: "title", order: ASC) {
+    edges {
+      node {
         id
         title
+      }
     }
-    }
-    }
-    }
+  }
+}
 </page-query>
 
 <script>

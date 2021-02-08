@@ -10,7 +10,11 @@
         <g-link class="nav__link" to="/blog/">Blog</g-link>
       </nav>
     </header>
-    <slot/>
+
+    <main>
+      <slot/>
+    </main>
+
   </div>
 </template>
 
