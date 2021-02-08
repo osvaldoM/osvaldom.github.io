@@ -6,6 +6,8 @@
 
 module.exports = {
   siteName: 'osvaldom',
+  siteUrl: 'https://osvaldom.github.io',
+  // pathPrefix: '/osvaldom.github.io',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
