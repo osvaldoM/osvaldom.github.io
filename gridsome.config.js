@@ -26,6 +26,12 @@ module.exports = {
       options: {
         path: 'devnotes/articles/*.md',
         typeName: 'Article',
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            create: true
+          },
+        },
         remark: {
           // remark options
         }
@@ -34,7 +40,10 @@ module.exports = {
   ],
   transformers: {
     remark: {
-      // global remark options
+        autolinkClassName: 'icon icon-link heading-anchor',
+        externalLinksTarget: '_blank',
+        externalLinksRel: ['noopener', ],
+        anchorClassName: 'icon icon-link',
     }
   },
   templates: {
@@ -44,7 +53,8 @@ module.exports = {
         path: '/blog/articles/:id',
         component: './src/templates/Article.vue'
       }
-    ]
+    ],
+    Tag: '/tag/:id',
   },
   css: {
     loaderOptions: {

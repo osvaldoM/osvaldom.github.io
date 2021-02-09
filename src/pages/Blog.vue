@@ -8,7 +8,7 @@
       <ul v-for="edge in $page.articles.edges" :key="edge.node.id">
         <li class="mb-5">
           <div class="flex items-center">
-            <span class="text-black mr-5"> March 2020</span> <span class="text-purple-600"> mysql</span>
+            <time class="text-black mr-5"> {{edge.node.date}}</time> <span class="text-purple-600"> mysql</span>
           </div>
           <h2 class="text-4xl">
             <g-link class="underline" :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }}</g-link>
@@ -27,6 +27,8 @@ query {
       node {
         id
         title
+        date (format: "MMMM D, Y")
+        summary
       }
     }
   }
