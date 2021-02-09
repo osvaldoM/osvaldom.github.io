@@ -42,7 +42,7 @@ module.exports = {
       {
         // name: 'single-article',
         path: '/blog/articles/:id',
-        component: './src/templates/Articlee.vue'
+        component: './src/templates/Article.vue'
       }
     ]
   },
