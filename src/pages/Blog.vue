@@ -7,8 +7,20 @@
     <div class="content mt-5">
       <ul v-for="edge in $page.articles.edges" :key="edge.node.id">
         <li class="mb-5">
-          <div class="flex items-center">
-            <time class="text-black mr-5"> {{edge.node.date}}</time> <span class="text-purple-600"> mysql</span>
+          <div class="">
+            <div>
+              Created at:
+              <time class="text-black mr-5"> {{ edge.node.published }}</time>
+              Last update: {{ edge.node.updated }}
+            </div>
+            <div class="text-white">
+              <g-link class="rounded-xl bg-green-800 mr-2 px-2 py-1"
+                  v-for="tag in edge.node.tags"
+                  :to="tag.path"
+                  :key="tag.id">
+                #{{ tag.title }}
+              </g-link>
+            </div>
           </div>
           <h2 class="text-4xl">
             <g-link class="underline" :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }}</g-link>
@@ -27,8 +39,13 @@ query {
       node {
         id
         title
-        date (format: "MMMM D, Y")
+        published (format: "MMMM D, Y")
+        updated (format: "MMMM D, Y")
         summary
+        tags {
+          title
+          path
+        }
       }
     }
   }
@@ -36,9 +53,9 @@ query {
 </page-query>
 
 <script>
-    export default {
-        metaInfo: {
-            title: 'About us'
-        }
-    }
+export default {
+  metaInfo: {
+    title: 'About us'
+  }
+}
 </script>
