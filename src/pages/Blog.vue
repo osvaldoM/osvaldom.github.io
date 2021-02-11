@@ -7,7 +7,7 @@
     <div class="content mt-5">
       <ul v-for="edge in $page.articles.edges" :key="edge.node.id">
         <li class="mb-5">
-          <div class="">
+          <article class="">
             <div>
               Created at:
               <time class="text-black mr-5"> {{ edge.node.published }}</time>
@@ -21,7 +21,7 @@
                 #{{ tag.title }}
               </g-link>
             </div>
-          </div>
+          </article>
           <h2 class="text-4xl">
             <g-link class="underline" :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }}</g-link>
           </h2>
@@ -33,8 +33,13 @@
 </template>
 
 <page-query>
-query {
-  articles: allArticle(sortBy: "title", order: ASC) {
+query Articles ($page: Int) {
+  articles: allArticle(sortBy: "date", order: DESC, perPage: 10, page: $page) @paginate{
+    totalCount
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -53,9 +58,16 @@ query {
 </page-query>
 
 <script>
+import { Pager } from 'gridsome'
+import Article from "../templates/Article";
+
 export default {
+  components: {
+    Article,
+    Pager
+  },
   metaInfo: {
-    title: 'About us'
+    title: 'My blog'
   }
 }
 </script>

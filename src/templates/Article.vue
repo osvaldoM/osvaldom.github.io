@@ -1,9 +1,9 @@
 <template>
 
-  <div v-if="$page.article">
-    <p v-html="$page.article.title"></p>
-    <div v-html="$page.article.content"></div>
-  </div>
+  <article v-if="$page.article">
+    <h1 v-html="$page.article.title"></h1>
+    <div class="markdown-body" v-html="$page.article.content"></div>
+  </article>
 
 </template>
 
