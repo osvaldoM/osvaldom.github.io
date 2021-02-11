@@ -1,13 +1,12 @@
 <template>
   <Layout>
 
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
+<div class="flex">
+  <div>
+    <p class="text-xl mb-2">Hi, my name is Osvaldo</p>
 
-    <h1>Hi, I'm Osvaldo</h1>
-
-    <p>
-      A software developer with focus on everything that runs on a browser, from CSS to web workers. I love making beatiful designs and seasmless interactions come to life in the form of web pages.
+    <p class="text-2xl font-semibold">
+      I'm a software developer with focus on everything that runs on a browser, from CSS to web workers. I love making beatiful designs and seasmless interactions come to life in the form of web pages.
       <br/>
       I obsess over writing clean JavaScript that works.
 
@@ -20,14 +19,19 @@
       <a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a>
       <a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a>
     </p>
-
+</div>
+  <div>
+    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
+    <g-image alt="Example image" src="~/favicon.png" width="135" />
+  </div>
+</div>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Home'
   }
 }
 </script>

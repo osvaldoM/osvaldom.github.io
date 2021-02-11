@@ -1,8 +1,12 @@
 <template>
-  <div class="container mx-auto">
-    <header class="header">
+  <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10">
+  <div class="container mx-auto bg-white rounded-3xl px-24 py-5">
+    <header class="header flex justify-between items-center mb-6">
       <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link to="/">
+<!--          {{ $static.metadata.siteName }}-->
+          <g-image src="~/assets/images/osvaldo.png" width="50"/>
+        </g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -16,6 +20,7 @@
     </main>
 
   </div>
+  </div>
 </template>
 
 <static-query>
@@ -27,6 +32,11 @@ siteName
 </static-query>
 
 <style>
+/*@font-face {*/
+/*  font-family: Northwell;*/
+/*  src: url('../assets/Northwell.otf');*/
+/*  font-weight: normal;*/
+/*}*/
 body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
@@ -34,18 +44,7 @@ body {
   line-height: 1.5;
 }
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
   height: 80px;
 }
 

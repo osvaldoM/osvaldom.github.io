@@ -1,3 +1,6 @@
+const colors = require('tailwindcss/colors')
+
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -5,7 +8,21 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    container: {
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+      }
+    },
+    extend: {
+      colors: {
+        rose: colors.rose,
+        orange: colors.orange,
+        fuchsia: colors.fuchsia
+      }
+      },
   },
   variants: {},
   plugins: [],
