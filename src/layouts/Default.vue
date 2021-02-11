@@ -9,9 +9,9 @@
         </g-link>
       </strong>
       <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/portfolio/">Portfolio</g-link>
-        <g-link class="nav__link" to="/blog/">Blog</g-link>
+        <g-link class="nav__link font-semibold" to="/">Home</g-link>
+        <g-link class="nav__link font-semibold" to="/portfolio/">Portfolio</g-link>
+        <g-link class="nav__link font-semibold" to="/blog/">Blog</g-link>
       </nav>
     </header>
 
@@ -31,7 +31,7 @@ siteName
 }
 </static-query>
 
-<style>
+<style lang="scss">
 /*@font-face {*/
 /*  font-family: Northwell;*/
 /*  src: url('../assets/Northwell.otf');*/
@@ -50,5 +50,8 @@ body {
 
 .nav__link {
   margin-left: 20px;
+}
+.nav__link.active--exact {
+  @apply rounded-2xl bg-rose-400 py-2 px-4 text-white
 }
 </style>
