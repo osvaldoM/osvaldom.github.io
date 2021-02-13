@@ -2,7 +2,7 @@
   <Layout>
 
     <div class="flex items-start">
-      <div>
+      <div class=" flex-grow-0">
         <p class="text-xl mb-2">Hi, my name is Osvaldo</p>
 
         <p class="text-2xl font-semibold">
@@ -21,16 +21,16 @@
           <a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a>
         </p>
       </div>
-      <div class="bg-gradient-to-r from-rose-400 to-orange-300 px-2 rounded-2xl">
+      <div class="bg-gradient-to-r from-rose-400 to-orange-300 px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <div class="">
-          <g-image class="my-image" alt="Example image" src="~/favicon.png"/>
+          <g-image class="relative " alt="Example image" src="~/assets/images/osvaldo-no-bg.png" width="200px"/>
         </div>
       </div>
     </div>
-    <svg height="0" width="0">
+    <svg height="0" width="0" viewBox="0 0 16 16">
       <defs>
-        <clipPath clipPathUnits="objectBoundingBox" id="svgPath">
+        <clipPath clipPathUnits="objectBoundingBox" id="svgPath" transform="scale(0.0625, 0.0625)">
           <path d='M0,0.8v9c0,0.4,0.3,1,0.8,1.3l6.5,4.4c0.4,0.3,1.1,0.3,1.5,0l6.5-4.4c0.4-0.3,0.8-0.9,0.8-1.3v-9C16,0.3,15.5,0,14.9,0H1.1 C0.5,0,0,0.3,0,0.8L0,0.8z'></path>
         </clipPath>
       </defs>
