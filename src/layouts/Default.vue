@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10">
-  <div class="container mx-auto bg-white rounded-3xl px-24 py-5">
+  <div class="container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
     <header class="header flex justify-between items-center mb-6">
       <strong>
         <g-link to="/">
@@ -18,6 +18,15 @@
     <main>
       <slot/>
     </main>
+
+    <footer class="mt-40">
+      <ul class="home-links flex">
+        <li><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a></li>
+        <li class="ml-auto"><span class=""> copyright@2021</span></li>
+      </ul>
+    </footer>
 
   </div>
   </div>

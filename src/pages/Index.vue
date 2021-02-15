@@ -1,30 +1,22 @@
 <template>
   <Layout>
 
-    <div class="flex items-start">
-      <div class=" flex-grow-0">
-        <p class="text-xl mb-2">Hi, my name is Osvaldo</p>
+    <div class="flex items-start mt-40">
+      <div class=" flex-grow-0 mr-48">
+        <p class="text-xl mb-2">Hi, my name is Osvaldo, </p>
 
-        <p class="text-2xl font-semibold">
-          I'm a software developer with focus on everything that runs on a browser, from CSS to web workers. I love making beatiful designs and
-          seasmless interactions come to life in the form of web pages.
+        <p class="text-2xl font-semibold mb-6">
+          I love making beautiful designs and seamless interactions come to life in the form of web pages.
           <br/>
-          I obsess over writing clean JavaScript that works.
-
-          I'm also enthusiastic about cloud computing, open source and developer communities.
         </p>
-        <p>If you'd like to connect with me or see some of the work I've been doing, please feel free to do so at the links below:</p>
-
-        <p class="home-links">
-          <a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a>
-          <a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a>
-        </p>
+        <div>
+          <button class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</button> <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg">Let's talk</button>
+        </div>
       </div>
-      <div class="bg-gradient-to-r from-rose-400 to-orange-300 px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
+      <div class="default-gradient px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <div class="">
-          <g-image class="relative " alt="Example image" src="~/assets/images/osvaldo-no-bg.png" width="200px"/>
+          <g-image class="relative " alt="Example image" src="~/assets/images/osvaldo-no-bg.png" width="230px"/>
         </div>
       </div>
     </div>
@@ -48,6 +40,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+.default-gradient {
+  @apply bg-gradient-to-r from-rose-400 to-orange-300;
+}
+
 .home-links a {
   margin-right: 1rem;
 }
