@@ -23,19 +23,19 @@
     <h2 class="mb-4">What I do</h2>
     <div class="flex -mx-3">
       <div class="mx-3">
-        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px" height=""/>
+        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px"/>
         <h3 class="h3">Responsive web applications</h3>
         <p>I build progressive web applications that adapt to both desktop and mobile devices.
           I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
       </div>
       <div class="mx-3">
-        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height=""/>
+        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" />
         <h3 class="h3">Fast by default</h3>
         <p>A build web applications that adapt to both desktop and mobile devices.
           I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
       </div>
       <div class="mx-3">
-        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height=""/>
+        <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px"/>
         <h3 class="h3">Responsive web applications</h3>
         <p>A build web applications that adapt to both desktop and mobile devices.
           I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>

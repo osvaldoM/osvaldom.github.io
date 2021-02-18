@@ -9,9 +9,9 @@
           </g-link>
         </strong>
         <nav class="nav">
-          <g-link class="nav__link font-semibold" to="/">Home</g-link>
-          <g-link class="nav__link font-semibold" to="/portfolio/">Portfolio</g-link>
-          <g-link class="nav__link font-semibold" to="/blog/">Blog</g-link>
+          <g-link class="nav__link font-semibold" to="/" v-on:mouseover.native="pullArrow">Home</g-link>
+          <g-link class="nav__link font-semibold" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
+          <g-link class="nav__link font-semibold" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
         </nav>
       </header>
 
@@ -30,7 +30,7 @@
       </footer>
     </div>
     <div class="striker-container default-gradient rounded-full absolute flex align-middle justify-center">
-      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow-2.svg" alt="responsive web app icon" width="60px" height=""/>
+      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow-2.svg" alt="responsive web app icon" width="60px"/>
     </div>
   </div>
 </template>
@@ -42,6 +42,33 @@ siteName
 }
 }
 </static-query>
+
+<script>
+import { gsap } from "gsap";
+
+export default {
+  name: "App",
+  created() {
+    console.log('created component')
+  },
+  mounted() {
+    gsap.to(".home-links", {duration: 2, x: 300});
+
+    // gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
+  },
+  methods: {
+    pullArrow(event) {
+      const $arrowContainer = document.querySelector('.striker-container');
+      const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
+      var angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
+
+      console.log(angle);
+      gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.4, rotation: `${angle-90}`});
+    }
+  }
+}
+
+</script>
 
 <style lang="scss">
 /*@font-face {*/
@@ -68,7 +95,7 @@ body {
 }
 
 .striker-container {
-  bottom: 380px;
+  bottom: 980px;
   left: 200px;
   width: 140px;
   height: 140px;
