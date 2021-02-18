@@ -1,17 +1,17 @@
 <template>
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative">
     <div class="container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
-      <header class="header flex justify-between items-center mb-6">
+      <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledPullArrow">
         <strong>
-          <g-link to="/">
+          <g-link to="/" >
   <!--          {{ $static.metadata.siteName }}-->
             <g-image src="~/assets/images/osvaldo.png" width="50"/>
           </g-link>
         </strong>
         <nav class="nav">
-          <g-link class="nav__link font-semibold" to="/" v-on:mouseover.native="pullArrow">Home</g-link>
-          <g-link class="nav__link font-semibold" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
-          <g-link class="nav__link font-semibold" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
+          <g-link class="nav__link font-semibold" to="/">Home</g-link>
+          <g-link class="nav__link font-semibold" to="/portfolio/">Portfolio</g-link>
+          <g-link class="nav__link font-semibold" to="/blog/">Blog</g-link>
         </nav>
       </header>
 
@@ -45,6 +45,16 @@ siteName
 
 <script>
 import { gsap } from "gsap";
+import {throttle} from 'lodash-es'
+
+const pullArrow = (event) => {
+  const $arrowContainer = document.querySelector('.striker-container');
+  const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
+  const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
+
+  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.4, rotation: `${angle-90}`});
+}
+
 
 export default {
   name: "App",
@@ -54,17 +64,10 @@ export default {
   mounted() {
     gsap.to(".home-links", {duration: 2, x: 300});
 
-    // gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
+    gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
   },
   methods: {
-    pullArrow(event) {
-      const $arrowContainer = document.querySelector('.striker-container');
-      const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
-      var angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-
-      console.log(angle);
-      gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.4, rotation: `${angle-90}`});
-    }
+    throttledPullArrow: throttle(pullArrow, 300)
   }
 }
 
