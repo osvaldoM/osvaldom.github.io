@@ -1,17 +1,17 @@
 <template>
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative">
     <div class="container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
-      <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledPullArrow">
+      <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
         <strong>
-          <g-link to="/" >
+          <g-link to="/">
   <!--          {{ $static.metadata.siteName }}-->
             <g-image src="~/assets/images/osvaldo.png" width="50"/>
           </g-link>
         </strong>
         <nav class="nav">
-          <g-link class="nav__link font-semibold" to="/">Home</g-link>
-          <g-link class="nav__link font-semibold" to="/portfolio/">Portfolio</g-link>
-          <g-link class="nav__link font-semibold" to="/blog/">Blog</g-link>
+          <g-link class="nav__link font-semibold" to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
+          <g-link class="nav__link font-semibold" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
+          <g-link class="nav__link font-semibold" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
         </nav>
       </header>
 
@@ -46,24 +46,31 @@ siteName
 <script>
 import { gsap } from "gsap";
 import {throttle} from 'lodash-es'
+import {addEventListenerList, $$, $} from "../Util";
 
-const pullArrow = (event) => {
-  const $arrowContainer = document.querySelector('.striker-container');
+const initPullArrow = () => {
+  const tl = gsap.timeline();
+  const $topCircle = $('.top-circle');
+  const $bottomCircle = $('.bottom-circle');
+  const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
+  const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value];
+  return (event) => {
+    console.log(event.type);
+    if(event.type === 'mouseover') {
+      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.8, rotation: `-45`});
+      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.8, rotation: `45`});
+      tl.to('.arrow', {duration:0.8, x: `180`});
+    } else {
+      tl.reverse(0);
+    }
+  }
+}
+
+const rotateArrow = (event) => {
+  const $arrowContainer = $('.striker-container');
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-
   gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-90}`});
-
-
-  const $topCircle = document.querySelector('.top-circle');
-  const $bottomCircle = document.querySelector('.bottom-circle');
-  const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value]
-  const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value]
-
-  gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.8, rotation: `-45`});
-  gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.8, rotation: `45`});
-
-  gsap.to('.arrow', {duration:0.8, x: `180`});
 }
 
 
@@ -76,9 +83,15 @@ export default {
     gsap.to(".home-links", {duration: 2, x: 300});
 
     gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
+
+    const $linkList = $$('.nav__link');
+    const pullArrow = initPullArrow();
+    addEventListenerList($linkList, 'mouseover', pullArrow);
+    addEventListenerList($linkList, 'mouseout', pullArrow);
   },
   methods: {
-    throttledPullArrow: throttle(pullArrow, 300)
+    throttledRotateArrow: throttle(rotateArrow, 300),
+    pullArrow: () => {}
   }
 }
 
