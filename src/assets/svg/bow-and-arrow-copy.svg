@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 505 746.91"
+   version="1.0"
+   id="svg196"
+   sodipodi:docname="bow-and-arrow.svg"
+   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)">
+  <metadata
+     id="metadata202">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs200">
+    <linearGradient
+       id="linearGradient844"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop842" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient838"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop836" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview198"
+     showgrid="false"
+     inkscape:zoom="1.1353443"
+     inkscape:cx="204.87304"
+     inkscape:cy="398.89253"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g194"
+     inkscape:document-rotation="0" />
+  <g
+     class="arrow-group"
+     stroke="#000"
+     fill="#FFF5FF"
+     id="g194">
+    <path
+       d="M140.5 745.95c-13.48-39.718 5.858-63.523 30-85l20 35c-5.975 12.547 1.28 20.684 5 30-22.018 21.406-38.646 21.249-55 20zM215.5 665.95c-14.186-3.944-19.89-14.249-25-25 50-40 232.58-105.51 120-195l10-55h45l-5 35c99.786 61.111 10 155-10 170-45 22.475-90 37.264-135 70zM140.5.95c-13.48 39.718 5.858 63.523 30 85l20-35c-5.975-12.547 1.28-20.684 5-30-22.018-21.406-38.646-21.249-55-20zM215.5 80.95c-14.186 3.944-19.89 14.249-25 25 50 40 232.58 105.51 120 195l10 55h45l-5-35c99.786-61.111 10-155-10-170-45-22.475-90-37.264-135-70z"
+       id="path188" />
+    <path
+       id="path190"
+       style="fill-opacity:1"
+       d="M 185.41211 645.78906 L 175.4707 655.89648 L 175.5 655.94922 L 195.5 695.94922 C 213.445 705.36622 218.594 695.59022 220.5 680.94922 C 208.119 670.23522 194.638 660.98822 185.5 645.94922 L 185.41211 645.78906 z " />
+    <path
+       id="path842"
+       style="fill-opacity:1"
+       d="M 25.5 355.94922 C 17.908 359.65322 19.04 367.71922 20.5 375.94922 L 175.4707 655.89648 L 185.41211 645.78906 L 25.5 355.94922 z "
+       class="bottom-line" />
+    <path
+       id="path1032"
+       style="fill-opacity:1"
+       d="M 185.5,100.94922 175.5,90.949219 112.92622,199.87395 88.445153,242.48914 40.5,325.94922 h 15 z"
+       class="top-line"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       id="path1037"
+       style="fill-opacity:1"
+       d="M 206.70898 47.261719 C 203.67297 47.440719 199.98625 48.594969 195.5 50.949219 L 175.5 90.949219 L 185.5 100.94922 C 194.638 85.910218 208.119 76.663219 220.5 65.949219 C 219.0705 54.968469 215.81703 46.724719 206.70898 47.261719 z " />
+    <path
+       d="M504.502 373.95c-40.757 21.427-82.087 37.127-124 47l30-35h-280l-25 25h-45l-30-55-30-25h105l25 30h280l-30-35c45.008 9.498 86.501 25.216 124 48zM25.5 390.95l10 20H.5l25-20z"
+       id="path192"
+       class="arrow" />
+    <circle
+       style="fill-opacity:1"
+       id="path1102"
+       cx="181.11632"
+       cy="93.528061"
+       class="top-circle"
+       r="23.532804" />
+    <circle
+       style="fill-opacity:1"
+       id="circle845"
+       cx="179.38559"
+       cy="651.84747"
+       class="bottom-circle"
+       r="23.532804" />
+  </g>
+</svg>

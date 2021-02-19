@@ -30,7 +30,7 @@
       </footer>
     </div>
     <div class="striker-container default-gradient rounded-full absolute flex align-middle justify-center">
-      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow-2.svg" alt="responsive web app icon" width="60px"/>
+      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="60px"/>
     </div>
   </div>
 </template>
@@ -52,7 +52,18 @@ const pullArrow = (event) => {
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
 
-  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.4, rotation: `${angle-90}`});
+  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-90}`});
+
+
+  const $topCircle = document.querySelector('.top-circle');
+  const $bottomCircle = document.querySelector('.bottom-circle');
+  const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value]
+  const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value]
+
+  gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.8, rotation: `-45`});
+  gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.8, rotation: `45`});
+
+  gsap.to('.arrow', {duration:0.8, x: `180`});
 }
 
 
