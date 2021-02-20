@@ -57,9 +57,12 @@ const initPullArrow = () => {
   return (event) => {
     console.log(event.type);
     if(event.type === 'mouseover') {
-      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.8, rotation: `-45`});
-      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.8, rotation: `45`});
-      tl.to('.arrow', {duration:0.8, x: `180`});
+      if (tl.reversed()) {
+        tl.play();
+      }
+      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.8, rotation: `-45`}, 0);
+      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.8, rotation: `45`}, 0);
+      tl.to('.arrow', {duration:0.8, x: `180`}, 0);
     } else {
       tl.reverse(0);
     }
