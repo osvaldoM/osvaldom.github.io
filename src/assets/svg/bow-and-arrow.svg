@@ -53,15 +53,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1853"
-     inkscape:window-height="1025"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
      id="namedview198"
      showgrid="false"
      inkscape:zoom="1.1353443"
      inkscape:cx="204.87304"
      inkscape:cy="398.89253"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:window-x="0"
+     inkscape:window-y="1080"
      inkscape:window-maximized="1"
      inkscape:current-layer="g194"
      inkscape:document-rotation="0" />
@@ -80,12 +80,12 @@
     <path
        id="path842"
        style="fill-opacity:1"
-       d="M 25.5 355.94922 C 17.908 359.65322 19.04 367.71922 20.5 375.94922 L 175.4707 655.89648 L 185.41211 645.78906 L 25.5 355.94922 z "
+       d="m 191.22904,315.72416 c -8.4428,-0.27788 -11.21563,7.38065 -13.7753,15.33757 l 6.00646,319.92235 13.51484,-4.28258 z"
        class="bottom-line" />
     <path
        id="path1032"
        style="fill-opacity:1"
-       d="M 185.5,100.94922 175.5,90.949219 112.92622,199.87395 88.445153,242.48914 40.5,325.94922 h 15 z"
+       d="m 190.9914,99.812705 -13.66026,-3.660255 0.27189,125.61847 0.10637,49.14638 0.20832,96.25112 12.99038,-7.5 z"
        class="top-line"
        sodipodi:nodetypes="ccccccc" />
     <path
@@ -93,7 +93,7 @@
        style="fill-opacity:1"
        d="M 206.70898 47.261719 C 203.67297 47.440719 199.98625 48.594969 195.5 50.949219 L 175.5 90.949219 L 185.5 100.94922 C 194.638 85.910218 208.119 76.663219 220.5 65.949219 C 219.0705 54.968469 215.81703 46.724719 206.70898 47.261719 z " />
     <path
-       d="m 504.502,373.95 c -40.757,21.427 -82.087,37.127 -124,47 l 30,-35 h -280 l -25,25 H 35.5 l -4.998,-55 -30,-25 h 105 l 25,30 h 280 l -30,-35 c 45.008,9.498 86.501,25.216 124,48 z M 34.249411,390.5774 35.5,410.95 h -35 z"
+       d="m 644.502,373.95 c -40.757,21.427 -82.087,37.127 -124,47 l 30,-35 h -280 l -25,25 H 175.5 l -4.998,-55 -30,-25 h 105 l 25,30 h 280 l -30,-35 c 45.008,9.498 86.501,25.216 124,48 z M 174.24941,390.5774 175.5,410.95 h -35 z"
        id="path192"
        class="arrow"
        sodipodi:nodetypes="ccccccccccccccccc" />
