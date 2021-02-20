@@ -48,12 +48,12 @@ query {
 <script>
 import { gsap } from "gsap";
 import {throttle} from 'lodash-es'
-import {addEventListenerList, $$, $} from "../Util";
+import {addEventListenerList} from "../util/Util";
 
 const initPullArrow = () => {
   const tl = gsap.timeline();
-  const $topCircle = $('.top-circle');
-  const $bottomCircle = $('.bottom-circle');
+  const $topCircle = document.querySelector('.top-circle');
+  const $bottomCircle = document.querySelector('.bottom-circle');
   const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
   const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value];
   return (event) => {
@@ -73,7 +73,7 @@ const initPullArrow = () => {
 }
 
 const rotateArrow = (event) => {
-  const $arrowContainer = $('.striker-container');
+  const $arrowContainer = document.querySelector('.striker-container');
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
   gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-90}`});
@@ -90,7 +90,7 @@ export default {
 
     gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
 
-    const $linkList = $$('.nav__link');
+    const $linkList = document.querySelectorAll('.nav__link');
     const pullArrow = initPullArrow();
     addEventListenerList($linkList, 'mouseover', pullArrow);
     addEventListenerList($linkList, 'mouseout', pullArrow);
