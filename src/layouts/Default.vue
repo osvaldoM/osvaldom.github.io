@@ -25,7 +25,7 @@
           <li><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
           <li><a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a></li>
           <li><a href="https://docs.google.com/document/d/1F8QXk3HaH0zGRcebRWAYwowFziFeIJcy7rnZuvNBXp8/edit?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
-          <li class="ml-auto"><span class=""> copyright@2021</span></li>
+          <li class="ml-auto"><span class=""> copyright@{{ $static.metadata.year }}</span></li>
         </ul>
       </footer>
     </div>
@@ -37,9 +37,11 @@
 
 <static-query>
 query {
-metadata {
-siteName
-}
+  metadata {
+    siteName
+    siteDescription
+    year
+  }
 }
 </static-query>
 

@@ -1,6 +1,5 @@
 <template>
-  <Layout>
-
+  <div>
     <div class="flex items-start mt-40">
       <div class=" flex-grow-0 mr-48">
         <p class="text-xl mb-2">Hi, my name is Osvaldo, </p>
@@ -51,8 +50,7 @@
         </clipPath>
       </defs>
     </svg>
-
-  </Layout>
+  </div>
 </template>
 
 <script>

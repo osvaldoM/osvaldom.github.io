@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div>
     <h1 class="text-5xl">Blog</h1>
 
     <p class="">Thoughts derived from my everyday experiences</p>
@@ -29,7 +29,7 @@
       </ul>
     </div>
 
-  </Layout>
+  </div>
 </template>
 
 <page-query>
