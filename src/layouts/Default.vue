@@ -29,8 +29,8 @@
         </ul>
       </footer>
     </div>
-    <div class="striker-container default-gradient rounded-full absolute flex align-middle justify-center">
-      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="60px"/>
+    <div class="striker-container default-gradient rounded-full absolute flex justify-center items-center">
+      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
     </div>
   </div>
 </template>
@@ -61,9 +61,9 @@ const initPullArrow = () => {
         tl.play();
         return;
       }
-      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-45`}, 0);
-      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `45`}, 0);
-      tl.to('.arrow', {duration:0.4, x: `180`}, 0);
+      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
+      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
+      tl.to('.arrow', {duration:0.4, x: `-180`}, 0);
     } else {
       tl.reverse(0);
     }
@@ -128,7 +128,7 @@ body {
 .striker-container {
   bottom: 980px;
   left: 200px;
-  width: 140px;
-  height: 140px;
+  width: 280px;
+  height: 280px;
 }
 </style>
