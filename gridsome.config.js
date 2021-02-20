@@ -11,8 +11,11 @@ const postcssPlugins = [
   tailwind(),
 ]
 
+
 if (process.env.NODE_ENV === 'production') postcssPlugins.push(purgecss(require('./purgecss.config.js')))
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 module.exports = {
   siteName: 'osvaldom',
@@ -69,5 +72,8 @@ module.exports = {
         .use("vue-svg-inline-loader")
         .loader("vue-svg-inline-loader")
         .options({ /* ... */ });
+    config
+        .plugin('BundleAnalyzerPlugin')
+        .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
   }
 };
