@@ -72,8 +72,8 @@ module.exports = {
         .use("vue-svg-inline-loader")
         .loader("vue-svg-inline-loader")
         .options({ /* ... */ });
-    config
-        .plugin('BundleAnalyzerPlugin')
-        .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
+    // config
+    //     .plugin('BundleAnalyzerPlugin')
+    //     .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
   }
 };

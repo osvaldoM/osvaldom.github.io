@@ -29,7 +29,7 @@
         </ul>
       </footer>
     </div>
-    <div class="striker-container default-gradient rounded-full absolute flex justify-center items-center">
+    <div class="striker-container default-gradient rounded-full flex justify-center items-center">
       <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
     </div>
   </div>
@@ -128,9 +128,10 @@ body {
 }
 
 .striker-container {
-  bottom: 980px;
+  position: absolute;
+  top: 660px;
   left: 200px;
-  width: 280px;
-  height: 280px;
+  width: 160px;
+  height: 160px;
 }
 </style>
