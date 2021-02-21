@@ -30,7 +30,7 @@
       </footer>
     </div>
     <div class="striker-container default-gradient rounded-full flex justify-center items-center">
-      <img class="max-w-full text-white" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+      <img class="max-w-full text-white striker-svg" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
     </div>
   </div>
 </template>
@@ -51,23 +51,42 @@ import {throttle} from 'lodash-es'
 import {addEventListenerList} from "../util/Util";
 
 const initPullArrow = () => {
-  const tl = gsap.timeline();
+  let tl = gsap.timeline();
   const $topCircle = document.querySelector('.top-circle');
   const $bottomCircle = document.querySelector('.bottom-circle');
   const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
   const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value];
+  let isExecutingUnstoppableAnimation = false;
   return (event) => {
-    console.log(event.type);
+    if(isExecutingUnstoppableAnimation)
+      return;
+
     if(event.type === 'mouseover') {
-      if (tl.reversed()) {
+      if (tl.reversed() || tl.paused()) {
         tl.play();
         return;
       }
+      console.log('first time');
       tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
       tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
       tl.to('.arrow', {duration:0.4, x: `-180`}, 0);
-    } else {
-      tl.reverse(0);
+    } else if(event.type === 'mouseout') {
+      tl.reverse();
+    } else if(event.type === 'click') {
+      console.log(event.pageX, event.pageY)
+      tl.to('.arrow', {
+        x: event.pageX*8.5,
+        // y: (event.pageY*8)-600,
+        duration: 0.8,
+        onStart: function () {
+          isExecutingUnstoppableAnimation = true;
+        },
+        onComplete: function (){
+          tl.remove(this);
+          tl.pause(0);
+          isExecutingUnstoppableAnimation = false;
+        }
+      });
     }
   }
 }
@@ -94,6 +113,7 @@ export default {
     const pullArrow = initPullArrow();
     addEventListenerList($linkList, 'mouseover', pullArrow);
     addEventListenerList($linkList, 'mouseout', pullArrow);
+    addEventListenerList($linkList, 'click', pullArrow);
   },
   methods: {
     throttledRotateArrow: throttle(rotateArrow, 300),
@@ -133,5 +153,14 @@ body {
   left: 200px;
   width: 160px;
   height: 160px;
+  z-index: 5;
+  //overflow: visible;
+}
+
+.striker-svg {
+  overflow: visible;
+}
+.arrow-group {
+  fill: blue;
 }
 </style>
