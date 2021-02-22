@@ -74,6 +74,8 @@ const initPullArrow = () => {
       tl.reverse();
     } else if(event.type === 'click') {
       console.log(event.pageX, event.pageY)
+      let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
+      let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
       tl.to('.arrow', {
         x: event.pageX*8.5,
         // y: (event.pageY*8)-600,
@@ -82,7 +84,9 @@ const initPullArrow = () => {
           isExecutingUnstoppableAnimation = true;
         },
         onComplete: function (){
-          tl.remove(this);
+          tl.remove(this)
+          tl.remove(tween1);
+          tl.remove(tween2);
           tl.pause(0);
           isExecutingUnstoppableAnimation = false;
         }
