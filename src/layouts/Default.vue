@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative">
+  <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative px-20">
     <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl relative">
       <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
         <strong>

@@ -1,30 +1,45 @@
 <template>
   <div>
-    <h1 class="text-5xl">Blog</h1>
+    <h1 class="text-5xl mb-10">Blog</h1>
 
     <p class="">Thoughts derived from my everyday experiences</p>
 
-    <div class="content mt-5">
-      <ul v-for="edge in $page.articles.edges" :key="edge.node.id">
-        <li class="mb-5">
+    <hr class="my-5"/>
+
+    <ul class="tags flex mt-10 items-center">
+      <span class="mr-4">Tags:</span>
+      <li class="tag" v-for="edge in $page.tags.edges" :key="edge.node.id">
+        <g-link :to="edge.node.path">
+          {{edge.node.title}}
+        </g-link>
+      </li>
+    </ul>
+
+    <div class="content mt-10">
+      <ul>
+        <li class="mb-20" v-for="edge in $page.articles.edges" :key="edge.node.id">
           <article class="">
-            <div>
-              Created at:
-              <time class="text-black mr-5"> {{ edge.node.published }}</time>
-              Last update: {{ edge.node.updated }}
-            </div>
-            <div class="text-white">
-              <g-link class="rounded-xl bg-green-800 mr-2 px-2 py-1"
-                  v-for="tag in edge.node.tags"
-                  :to="tag.path"
-                  :key="tag.id">
-                #{{ tag.title }}
-              </g-link>
-            </div>
-          </article>
-          <h2 class="text-4xl">
+          <h2 class="text-4xl mb-4">
             <g-link class="underline" :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }}</g-link>
           </h2>
+          <p>{{edge.node.summary}} -><g-link class="underline" :to="`/blog/articles/${edge.node.id}`">read more</g-link></p>
+          <div class="mt-4 flex items-center justify-between">
+            <ul class="">
+              <li>
+                <g-link class="tag"
+                        v-for="tag in edge.node.tags"
+                        :to="tag.path"
+                        :key="tag.id">
+                  #{{ tag.title }}
+                </g-link>
+              </li>
+            </ul>
+            <div class="text-sm">
+              Published on
+              <time class=" mr-5"> {{ edge.node.published }}</time>
+            </div>
+          </div>
+          </article>
         </li>
       </ul>
     </div>
@@ -54,6 +69,14 @@ query Articles ($page: Int) {
       }
     }
   }
+  tags: allTag{
+    edges {
+      node {
+        title
+        path
+      }
+    }
+  }
 }
 </page-query>
 
@@ -71,3 +94,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+.tag {
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1;
+}
+
+</style>
