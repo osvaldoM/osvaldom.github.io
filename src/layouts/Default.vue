@@ -1,9 +1,9 @@
 <template>
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative">
-    <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
+    <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl relative">
       <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
         <strong>
-          <g-link to="/">
+          <g-link class="nav__link" to="/">
   <!--          {{ $static.metadata.siteName }}-->
             <g-image src="~/assets/images/osvaldo.png" width="50"/>
           </g-link>
@@ -27,7 +27,7 @@
         <slot/>
       </main>
 
-      <footer class="mt-20">
+      <footer class="mt-20 absolute bottom-4 left-0 w-full px-24">
         <ul class="home-links flex">
           <li><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
@@ -36,9 +36,9 @@
           <li class="ml-auto"><span class=""> copyright@{{ $static.metadata.year }}</span></li>
         </ul>
       </footer>
-    </div>
-    <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-      <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+      <div class="striker-container bg-white rounded-full flex justify-center items-center ">
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+      </div>
     </div>
   </div>
 </template>
@@ -74,7 +74,6 @@ const initPullArrow = () => {
         tl.play();
         return;
       }
-      console.log('first time');
       tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
       tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
       tl.to('.arrow', {duration:0.4, x: `-180`}, 0);
@@ -84,7 +83,7 @@ const initPullArrow = () => {
       let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
       let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
       tl.to('.arrow', {
-        x: event.pageX*8.5,
+        x: event.pageX*10,
         // y: (event.pageY*8)-600,
         duration: 0.4,
         onStart: function () {
@@ -107,18 +106,15 @@ const rotateArrow = (event) => {
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-90}`});
+  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-93}`});
 }
 
 
 export default {
   name: "App",
   created() {
-    console.log('created component')
   },
   mounted() {
-    gsap.to(".home-links", {duration: 2, x: 300});
-
     gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
 
     const $linkList = document.querySelectorAll('.nav__link');
@@ -166,7 +162,7 @@ body {
 .striker-container {
   position: absolute;
   top: 660px;
-  left: 200px;
+  left: -80px;
   width: 160px;
   height: 160px;
   z-index: 5;

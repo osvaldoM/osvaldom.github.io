@@ -25,9 +25,9 @@
         <div class="img-container">
           <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px" height="100%"/>
         </div>
-        <h3 class="h3">Responsive web applications</h3>
+        <h3 class="h3">Responsive rich web applications</h3>
         <p>I build progressive web applications that adapt to both desktop and mobile devices.
-          I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
+          I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
       </div>
       <div class="mx-3">
         <div class="img-container">
