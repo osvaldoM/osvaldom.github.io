@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative">
-    <div class="container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
+    <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl">
       <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
         <strong>
           <g-link to="/">
@@ -8,10 +8,18 @@
             <g-image src="~/assets/images/osvaldo.png" width="50"/>
           </g-link>
         </strong>
-        <nav class="nav">
-          <g-link class="nav__link font-semibold" to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
-          <g-link class="nav__link font-semibold" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
-          <g-link class="nav__link font-semibold" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
+        <nav class="nav -mr-24">
+          <ul class="flex">
+            <li class="nav__item">
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
+            </li>
+            <li class="nav__item">
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
+            </li>
+            <li class="nav__item">
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
+            </li>
+          </ul>
         </nav>
       </header>
 
@@ -19,7 +27,7 @@
         <slot/>
       </main>
 
-      <footer class="mt-80">
+      <footer class="mt-20">
         <ul class="home-links flex">
           <li><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
@@ -29,8 +37,8 @@
         </ul>
       </footer>
     </div>
-    <div class="striker-container default-gradient rounded-full flex justify-center items-center">
-      <img class="max-w-full text-white striker-svg" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+    <div class="striker-container bg-white rounded-full flex justify-center items-center ">
+      <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
     </div>
   </div>
 </template>
@@ -73,13 +81,12 @@ const initPullArrow = () => {
     } else if(event.type === 'mouseout') {
       tl.reverse();
     } else if(event.type === 'click') {
-      console.log(event.pageX, event.pageY)
       let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
       let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
       tl.to('.arrow', {
         x: event.pageX*8.5,
         // y: (event.pageY*8)-600,
-        duration: 0.8,
+        duration: 0.4,
         onStart: function () {
           isExecutingUnstoppableAnimation = true;
         },
@@ -89,6 +96,7 @@ const initPullArrow = () => {
           tl.remove(tween2);
           tl.pause(0);
           isExecutingUnstoppableAnimation = false;
+          event.target.classList.add('active--exact')
         }
       });
     }
@@ -145,8 +153,12 @@ body {
 }
 
 .nav__link {
-  margin-left: 20px;
+  //margin-left: 20px;
 }
+.nav__item {
+  min-width: 8rem;
+}
+
 .nav__link.active--exact {
   @apply rounded-2xl bg-rose-400 py-2 px-4 text-white
 }
@@ -165,6 +177,10 @@ body {
   overflow: visible;
 }
 .arrow-group {
-  fill: blue;
+  //fill: blue;
+}
+
+.page-container {
+  min-height: 1000px;
 }
 </style>

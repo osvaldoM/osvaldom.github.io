@@ -4,4 +4,10 @@
 import '~/assets/app.scss'
 
 export default function (Vue, { router, head, isClient }) {
+    router.beforeEach((to, from, next) => {
+        setTimeout(() => {
+            console.log('finished waiting');
+            next()
+        }, 800)
+    })
 }

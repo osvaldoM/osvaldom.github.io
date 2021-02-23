@@ -1,8 +1,8 @@
 <template>
   <main-layout>
-  <transition name="fade">
+<!--  <transition name="fade">-->
   <router-view />
-  </transition>
+<!--  </transition>-->
   </main-layout>
 </template>
 
