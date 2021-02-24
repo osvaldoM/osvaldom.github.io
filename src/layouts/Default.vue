@@ -2,12 +2,10 @@
   <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative px-20">
     <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl relative">
       <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
-        <strong>
-          <g-link class="nav__link" to="/">
-  <!--          {{ $static.metadata.siteName }}-->
-            <g-image src="~/assets/images/osvaldo.png" width="50"/>
-          </g-link>
-        </strong>
+        <g-link class="" to="/" exact>
+<!--          {{ $static.metadata.siteName }}-->
+          <g-image src="~/assets/images/osvaldo.png" width="50"/>
+        </g-link>
         <nav class="nav -mr-24">
           <ul class="flex">
             <li class="nav__item">

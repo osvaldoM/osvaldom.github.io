@@ -20,8 +20,8 @@
       </div>
     </div>
     <h2 class="mb-4">What I do</h2>
-    <div class="flex -mx-3">
-      <div class="mx-3">
+    <div class="flex -mx-3 items-baseline">
+      <div class="mx-3 w-1/3">
         <div class="img-container">
           <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px" height="100%"/>
         </div>
@@ -29,7 +29,7 @@
         <p>I build progressive web applications that adapt to both desktop and mobile devices.
           I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
       </div>
-      <div class="mx-3">
+      <div class="mx-3 w-1/3">
         <div class="img-container">
           <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height="100%" />
         </div>
@@ -37,13 +37,12 @@
         <p>A build web applications that adapt to both desktop and mobile devices.
           I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
       </div>
-      <div class="mx-3">
+      <div class="mx-3 w-1/3">
         <div class="img-container">
           <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height="100%"/>
         </div>
-        <h3 class="h3">Responsive web applications</h3>
-        <p>A build web applications that adapt to both desktop and mobile devices.
-          I also strive to use the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
+        <h3 class="h3">Performance optimization</h3>
+        <p>I perform web applications audits to find bottlenecks and opportunities for optimization. These audits take place at both the client/server side.</p>
       </div>
 
     </div>
@@ -79,5 +78,8 @@ export default {
 
 .my-image {
   clip-path: url(#svgPath);
+}
+.img-container {
+  @apply mb-4;
 }
 </style>
