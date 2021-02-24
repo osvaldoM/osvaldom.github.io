@@ -29,10 +29,10 @@
 
       <footer class="mt-20 absolute bottom-4 left-0 w-full px-24">
         <ul class="home-links flex">
-          <li><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
-          <li><a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a></li>
-          <li><a href="https://docs.google.com/document/d/1F8QXk3HaH0zGRcebRWAYwowFziFeIJcy7rnZuvNBXp8/edit?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+          <li class="mr-2"><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
+          <li class="mr-2"><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
+          <li class="mr-2"><a href="https://stackoverflow.com/users/story/4043487" target="_blank" rel="noopener">Stackoverflow</a></li>
+          <li class="mr-2"><a href="https://docs.google.com/document/d/1F8QXk3HaH0zGRcebRWAYwowFziFeIJcy7rnZuvNBXp8/edit?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
           <li class="ml-auto"><span class=""> copyright@{{ $static.metadata.year }}</span></li>
         </ul>
       </footer>
@@ -106,7 +106,7 @@ const rotateArrow = (event) => {
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-93}`});
+  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-97}`});
 }
 
 

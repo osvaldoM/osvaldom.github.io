@@ -8,8 +8,13 @@
 
     <ul class="tags flex mt-10 items-center">
       <span class="mr-4">Tags:</span>
-      <li class="tag" v-for="edge in $page.tags.edges" :key="edge.node.id">
-        <g-link :to="edge.node.path">
+      <li class="">
+        <g-link :to="currentRoute" class="tag py-4">
+          All articles
+        </g-link>
+      </li>
+      <li class="" v-for="edge in $page.tags.edges" :key="edge.node.id">
+        <g-link :to="edge.node.path" class="tag">
           {{edge.node.title}}
         </g-link>
       </li>
@@ -91,6 +96,13 @@ export default {
   },
   metaInfo: {
     title: 'My blog'
+  },
+  created() {
+  },
+  computed: {
+    currentRoute: function (){
+      return this.$route.path
+    }
   }
 }
 </script>
@@ -98,7 +110,11 @@ export default {
 <style lang="scss">
 
 .tag {
-  @apply rounded-full bg-gray-200 mr-2 px-4 py-1;
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
+}
+
+.tag.active--exact {
+  @apply bg-gray-800 text-white;
 }
 
 </style>
