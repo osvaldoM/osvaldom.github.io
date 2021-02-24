@@ -11,7 +11,7 @@
         <nav class="nav -mr-24">
           <ul class="flex">
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
             </li>
             <li class="nav__item">
               <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
@@ -155,7 +155,7 @@ body {
   min-width: 8rem;
 }
 
-.nav__link.active--exact {
+.nav__link.active {
   @apply rounded-2xl bg-rose-400 py-2 px-4 text-white
 }
 

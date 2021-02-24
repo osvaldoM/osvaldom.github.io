@@ -27,7 +27,7 @@
           <h2 class="text-4xl mb-4">
             <g-link class="underline" :to="`/blog/articles/${edge.node.id}`"> {{ edge.node.title }}</g-link>
           </h2>
-          <p>{{edge.node.summary}} -><g-link class="underline" :to="`/blog/articles/${edge.node.id}`">read more</g-link></p>
+          <p>{{edge.node.summary}} ...<g-link class="underline" :to="`/blog/articles/${edge.node.id}`">read more</g-link></p>
           <div class="mt-4 flex items-center justify-between">
             <ul class="">
               <li>

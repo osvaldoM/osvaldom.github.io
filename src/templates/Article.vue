@@ -12,6 +12,7 @@ query ($id: ID!) {
   article(id: $id) {
     id
     title
+    content
     published (format: "MMMM D, Y")
     updated (format: "MMMM D, Y")
     summary
