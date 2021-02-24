@@ -37,7 +37,13 @@ module.exports = {
         },
         remark: {
           // remark options
-        }
+        },
+        plugins: [[
+          '@gridsome/remark-prismjs',
+          {
+            transformInlineCode: true,
+          },
+        ]],
       }
     },
   ],
@@ -47,8 +53,14 @@ module.exports = {
         externalLinksTarget: '_blank',
         externalLinksRel: ['noopener', ],
         anchorClassName: 'icon icon-link',
+        plugins: [
+          ['@gridsome/remark-prismjs',
+          {
+            transformInlineCode: true,
+          }]
+        ]
     }
-  },
+    },
   templates: {
     Article: [
       {

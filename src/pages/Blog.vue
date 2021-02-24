@@ -109,6 +109,8 @@ export default {
 
 <style lang="scss">
 
+//@import 'prismjs/themes/prism.css';
+
 .tag {
   @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
 }
