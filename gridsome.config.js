@@ -36,14 +36,13 @@ module.exports = {
           },
         },
         remark: {
-          // remark options
+          // plugins: [[
+          //   '@gridsome/remark-prismjs',
+          //   {
+          //     transformInlineCode: true,
+          //   },
+          // ]],
         },
-        plugins: [[
-          '@gridsome/remark-prismjs',
-          {
-            transformInlineCode: true,
-          },
-        ]],
       }
     },
   ],

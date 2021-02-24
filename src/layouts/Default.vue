@@ -178,5 +178,6 @@ body {
 
 .page-container {
   min-height: 1000px;
+  padding-bottom: 90px;
 }
 </style>

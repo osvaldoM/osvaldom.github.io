@@ -6,14 +6,31 @@
 
 @layer base {
   h1 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold mb-8;
   }
   h2 {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold mb-6;
   }
 
   .h3 {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold mb-6;
+  }
+
+  p {
+    @apply mb-7
+  }
+
+  blockquote {
+      @apply border-l-4  bg-rose-50 border-orange-400 p-4 mb-4 ml-8
+  }
+  blockquote::before {
+    content: "“";
+    font-weight: bold;
+    font-size: 40px;
+  }
+
+  ol {
+    list-style: decimal;
   }
 }
 

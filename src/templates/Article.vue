@@ -1,6 +1,6 @@
 <template>
 
-  <article v-if="$page.article">
+  <article class="article" v-if="$page.article">
     <h1 v-html="$page.article.title"></h1>
     <div class="markdown-body" v-html="$page.article.content"></div>
   </article>
@@ -34,6 +34,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
+  .article ul {
+    list-style: disc;
+    @apply mb-6;
+  }
+  .article li {
+    @apply ml-8
+  }
+  .article a {
+    @apply underline
+  }
 </style>
