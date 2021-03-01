@@ -45,9 +45,7 @@
         <h3 class="h3">Exciting challenges</h3>
         <p>I'm always open to build cool things with cool people.</p>
       </div>
-
     </div>
-
 
     <svg height="0" width="0">
       <defs>
@@ -58,13 +56,6 @@
         </clipPath>
       </defs>
     </svg>
-    <svg class="svg">
-      <clipPath id="clip-path-2" clipPathUnits="objectBoundingBox">
-        <path d="M0.129,0.651 C0.102,0.567,0.06,0.57,0.036,0.499 C0,0.396,0.039,0.241,0.129,0.182 C0.217,0.124,0.277,0.208,0.434,0.166 C0.553,0.134,0.552,0.076,0.678,0.045 C0.732,0.032,0.864,0,0.949,0.077 C1,0.154,1,0.302,1,0.35 C1,0.458,0.974,0.471,0.978,0.57 C0.983,0.676,1,0.692,1,0.771 C1,0.855,0.946,0.949,0.869,0.964 C0.77,0.984,0.736,0.858,0.622,0.857 C0.482,0.856,0.438,1,0.314,1 C0.237,1,0.17,0.933,0.147,0.862 C0.12,0.78,0.16,0.744,0.129,0.651">
-        </path>
-      </clipPath>
-    </svg>
-
   </div>
 </template>
 
@@ -78,11 +69,7 @@ export default {
   },
   mounted() {
     const initHeadingAreaAnimation = () => {
-      let isPlaying = false,
-      timeout;
-      let timeline = anime.timeline({
-        autoPlay: false
-      });
+      let timeout;
       let animation = anime({
         targets: '#svgPath path',
         d: [
