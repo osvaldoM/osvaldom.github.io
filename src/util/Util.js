@@ -4,6 +4,22 @@ const addEventListenerList = (list, event, fn) => {
     }
 }
 
+const screenToSVG = (svg, screenX, screenY) => {
+    const p = svg.createSVGPoint()
+    p.x = screenX
+    p.y = screenY
+    return p.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+const sVGToScreen = (svg, svgX, svgY) => {
+    const p = svg.createSVGPoint()
+    p.x = svgX
+    p.y = svgY
+    return p.matrixTransform(svg.getScreenCTM());
+}
+
 export {
     addEventListenerList,
+    screenToSVG,
+    sVGToScreen
 }

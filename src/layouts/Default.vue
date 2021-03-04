@@ -35,7 +35,7 @@
         </ul>
       </footer>
       <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="100px" height="100px"/>
       </div>
     </div>
   </div>
@@ -57,7 +57,13 @@ import {throttle} from 'lodash-es'
 import {addEventListenerList} from "../util/Util";
 
 const initPullArrow = () => {
+  const svg = document.querySelector('.striker-svg');
   let tl = gsap.timeline();
+  const $arrowContainer = document.querySelector('.striker-container');
+  const center = [
+      $arrowContainer.getBoundingClientRect().left + $arrowContainer.getBoundingClientRect().width / 2,
+      $arrowContainer.getBoundingClientRect().top + $arrowContainer.getBoundingClientRect().height / 2
+  ];
   const $topCircle = document.querySelector('.top-circle');
   const $bottomCircle = document.querySelector('.bottom-circle');
   const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
@@ -80,8 +86,32 @@ const initPullArrow = () => {
     } else if(event.type === 'click') {
       let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
       let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
+
+      console.log(event.pageX, event.clientX, event.screenX, event.offsetX);
+      console.log(event.pageY, event.clientY, event.screenY, event.offsetY);
+
+      const pt = svg.createSVGPoint();
+
+      const x1 = svg.getBoundingClientRect().left,
+          y1 = svg.getBoundingClientRect().top,
+          x2 = event.pageX,
+          y2 = event.pageY;
+      const hypothenuse = Math.hypot(x2-x1, y2-y1);
+
+      console.log('hyp', hypothenuse + x1);
+
+      // pass event coordinates
+      pt.x = hypothenuse + x1;
+      pt.y = event.clientY;
+
+      const svgP = pt.matrixTransform( svg.getScreenCTM().inverse() );
+
+      console.log('x transform ',pt.x - center[0], 'center x:' , center);
+      console.log(svgP.x, svgP.y);
+
       tl.to('.arrow', {
-        x: event.pageX*10,
+        transformOrigin: `0,0`,
+        x: svgP.x,
         // y: (event.pageY*8)-600,
         duration: 0.4,
         onStart: function () {
@@ -104,7 +134,7 @@ const rotateArrow = (event) => {
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-97}`});
+  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-96}`});
 }
 
 
