@@ -63,6 +63,9 @@ const initPullArrow = () => {
       $arrowContainer.getBoundingClientRect().left + $arrowContainer.getBoundingClientRect().width / 2,
       $arrowContainer.getBoundingClientRect().top + $arrowContainer.getBoundingClientRect().height / 2
   ];
+  const $arrow = document.querySelector('.arrow');
+  const $topLine = document.querySelector('.top-line');
+  const $bottomLine = document.querySelector('.bottom-line');
   const $topCircle = document.querySelector('.top-circle');
   const $bottomCircle = document.querySelector('.bottom-circle');
   const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
@@ -79,14 +82,14 @@ const initPullArrow = () => {
         tl.play();
         return;
       }
-      tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
-      tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
-      tl.to('.arrow', {duration:0.4, x: `-40`}, 0);
+      tl.to($topLine, {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
+      tl.to($bottomLine, {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
+      tl.to($arrow, {duration:0.4, x: `-40`}, 0);
     } else if(event.type === 'mouseout') {
       tl.reverse();
     } else if(event.type === 'click') {
-      let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
-      let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
+      let tween1 = gsap.to($topLine, {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
+      let tween2 = gsap.to($bottomLine, {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
 
       const x1 = svg.getBoundingClientRect().left,
           y1 = svg.getBoundingClientRect().top,
@@ -96,10 +99,10 @@ const initPullArrow = () => {
 
       const svgPoint = screenToSVG(svg, (x1 + hypotenuse), y1);
 
-      tl.to('.arrow', {
+      tl.to($arrow, {
         transformOrigin: '0,0',
-        x: svgPoint.x,
-        duration: 0.4,
+        x: svgPoint.x - $arrow.getBoundingClientRect().width,
+        duration: 0.3,
         onStart: function () {
           isExecutingUnstoppableAnimation = true;
         },

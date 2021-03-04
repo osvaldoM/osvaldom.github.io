@@ -9,6 +9,6 @@ export default function (Vue, { router, head, isClient }) {
         setTimeout(() => {
             console.log('finished waiting');
             next()
-        }, 800)
+        }, 300)
     })
 }
