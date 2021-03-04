@@ -9,7 +9,8 @@
           <br/>
         </p>
         <div>
-          <button class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</button> <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg">Let's talk</button>
+          <button class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</button>
+          <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg" @click="showModal = true">Let's talk</button>
         </div>
       </div>
       <div class="default-gradient px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
@@ -58,16 +59,31 @@
         </clipPath>
       </defs>
     </svg>
+    <modal v-if="showModal" @close="showModal = false">
+      <!--
+    you can use custom content here to overwrite
+    default content
+  -->
+      <h3 slot="header">custom header</h3>
+    </modal>
   </div>
 </template>
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
-import {throttle} from "lodash-es";
+import modal from '~/components/Modal.vue'
 
 export default {
+  components: {
+    modal
+  },
   metaInfo: {
     title: 'Home'
+  },
+  data(){
+    return {
+      showModal: false
+    }
   },
   mounted() {
     const initHeadingAreaAnimation = () => {
