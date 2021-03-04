@@ -18,8 +18,19 @@ const SVGToScreen = (svg, svgX, svgY) => {
     return p.matrixTransform(svg.getScreenCTM());
 }
 
+const checkFetchResponseStatus = (response) => {
+    return Promise.resolve(response);
+
+    if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response)
+    } else {
+        return Promise.reject(new Error(response.statusText))
+    }
+}
+
 export {
     addEventListenerList,
     screenToSVG,
-    SVGToScreen
+    SVGToScreen,
+    checkFetchResponseStatus
 }
