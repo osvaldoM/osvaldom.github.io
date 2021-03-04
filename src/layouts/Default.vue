@@ -35,7 +35,7 @@
         </ul>
       </footer>
       <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="100px" height="100px"/>
       </div>
     </div>
   </div>
@@ -81,7 +81,7 @@ const initPullArrow = () => {
       }
       tl.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `35`}, 0);
       tl.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `-35`}, 0);
-      tl.to('.arrow', {duration:0.4, x: `-180`}, 0);
+      tl.to('.arrow', {duration:0.4, x: `-40`}, 0);
     } else if(event.type === 'mouseout') {
       tl.reverse();
     } else if(event.type === 'click') {
@@ -184,6 +184,10 @@ body {
 
 .striker-svg {
   overflow: visible;
+}
+.striker-svg.animating {
+  position: relative;
+  top:10px;
 }
 .arrow-group {
   //fill: blue;
