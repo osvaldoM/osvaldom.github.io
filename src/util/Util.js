@@ -11,7 +11,7 @@ const screenToSVG = (svg, screenX, screenY) => {
     return p.matrixTransform(svg.getScreenCTM().inverse());
 }
 
-const sVGToScreen = (svg, svgX, svgY) => {
+const SVGToScreen = (svg, svgX, svgY) => {
     const p = svg.createSVGPoint()
     p.x = svgX
     p.y = svgY
@@ -21,5 +21,5 @@ const sVGToScreen = (svg, svgX, svgY) => {
 export {
     addEventListenerList,
     screenToSVG,
-    sVGToScreen
+    SVGToScreen
 }

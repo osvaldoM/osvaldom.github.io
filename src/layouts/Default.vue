@@ -9,13 +9,13 @@
         <nav class="nav -mr-24">
           <ul class="flex">
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/"  v-on:mouseover.native="pullArrow">Home</g-link>
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >Home</g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/" v-on:mouseover.native="pullArrow">Portfolio</g-link>
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">Portfolio</g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/" v-on:mouseover.native="pullArrow">Blog</g-link>
+              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">Blog</g-link>
             </li>
           </ul>
         </nav>
@@ -35,7 +35,7 @@
         </ul>
       </footer>
       <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="100px" height="100px"/>
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow.svg" alt="responsive web app icon" width="100px" height="100px"/>
       </div>
     </div>
   </div>
@@ -54,11 +54,10 @@ query {
 <script>
 import { gsap } from "gsap";
 import {throttle} from 'lodash-es'
-import {addEventListenerList} from "../util/Util";
+import {addEventListenerList, screenToSVG} from "../util/Util";
 
 const initPullArrow = () => {
   const svg = document.querySelector('.striker-svg');
-  let tl = gsap.timeline();
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [
       $arrowContainer.getBoundingClientRect().left + $arrowContainer.getBoundingClientRect().width / 2,
@@ -69,6 +68,8 @@ const initPullArrow = () => {
   const topCircleCenter = [$topCircle.cx.baseVal.value, $topCircle.cy.baseVal.value];
   const bottomCircleCenter = [$topCircle.cx.baseVal.value, $bottomCircle.cy.baseVal.value];
   let isExecutingUnstoppableAnimation = false;
+  let tl = gsap.timeline();
+
   return (event) => {
     if(isExecutingUnstoppableAnimation)
       return;
@@ -87,32 +88,17 @@ const initPullArrow = () => {
       let tween1 = gsap.to('.top-line', {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
       let tween2 = gsap.to('.bottom-line', {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
 
-      console.log(event.pageX, event.clientX, event.screenX, event.offsetX);
-      console.log(event.pageY, event.clientY, event.screenY, event.offsetY);
-
-      const pt = svg.createSVGPoint();
-
       const x1 = svg.getBoundingClientRect().left,
           y1 = svg.getBoundingClientRect().top,
           x2 = event.pageX,
           y2 = event.pageY;
-      const hypothenuse = Math.hypot(x2-x1, y2-y1);
+      const hypotenuse = Math.hypot(x2-x1, y2-y1);
 
-      console.log('hyp', hypothenuse + x1);
-
-      // pass event coordinates
-      pt.x = hypothenuse + x1;
-      pt.y = event.clientY;
-
-      const svgP = pt.matrixTransform( svg.getScreenCTM().inverse() );
-
-      console.log('x transform ',pt.x - center[0], 'center x:' , center);
-      console.log(svgP.x, svgP.y);
+      const svgPoint = screenToSVG(svg, (x1 + hypotenuse), y1);
 
       tl.to('.arrow', {
-        transformOrigin: `0,0`,
-        x: svgP.x,
-        // y: (event.pageY*8)-600,
+        transformOrigin: '0,0',
+        x: svgPoint.x,
         duration: 0.4,
         onStart: function () {
           isExecutingUnstoppableAnimation = true;
@@ -153,7 +139,6 @@ export default {
   },
   methods: {
     throttledRotateArrow: throttle(rotateArrow, 300),
-    pullArrow: () => {}
   }
 }
 
