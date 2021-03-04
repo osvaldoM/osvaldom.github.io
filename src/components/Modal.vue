@@ -2,11 +2,13 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
+        <div class="modal-container rounded-3xl shadow-2xl">
 
           <div class="modal-header">
             <slot name="header">
-              default header
+                <button class="modal-default-button" @click="$emit('close')">
+                    x
+                </button>
             </slot>
           </div>
 
@@ -18,10 +20,7 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
-              </button>
+
             </slot>
           </div>
         </div>
@@ -49,12 +48,10 @@
 }
 
 .modal-container {
-  width: 300px;
+  max-width: 800px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }

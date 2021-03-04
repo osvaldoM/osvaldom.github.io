@@ -60,11 +60,20 @@
       </defs>
     </svg>
     <modal v-if="showModal" @close="showModal = false">
-      <!--
-    you can use custom content here to overwrite
-    default content
-  -->
-      <h3 slot="header">custom header</h3>
+
+      <section class="" slot="body">
+        <div class="flex items-center">
+          <img class="max-w-full mr-20" svg-inline src="~/assets/svg/undraw_Mail_sent_re_0ofv.svg" alt="responsive web app icon" width="300px" height="100%"/>
+          <form class="" style="max-width: 400px">
+            <h2 class="">Get in touch</h2>
+            <input name="person_name" autocomplete="name" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" type="text" placeholder="Your name"/>
+            <input name="person_email" autocomplete="email" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" type="email" placeholder="Your email address">
+            <textarea name="message" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" cols="5" rows="6">
+            </textarea>
+            <button class="text-center text-white font-bold w-full bg-rose-400 py-1.5 rounded-2xl" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
     </modal>
   </div>
 </template>
@@ -82,7 +91,7 @@ export default {
   },
   data(){
     return {
-      showModal: false
+      showModal: true
     }
   },
   mounted() {
