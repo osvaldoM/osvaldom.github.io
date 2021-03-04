@@ -19,39 +19,41 @@
         </div>
       </div>
     </section>
-    <h2 class="mb-4">What I do</h2>
-    <div class="flex -mx-3 items-baseline">
-      <div class="mx-3 w-1/3">
-        <div class="img-container">
-          <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px" height="100%"/>
+
+    <section class="mt-20">
+      <h2 class="mb-4">What I do</h2>
+      <div class="flex -mx-3 items-baseline">
+        <div class="mx-3 w-1/3">
+          <div class="img-container">
+            <img class="max-w-full" svg-inline src="~/assets/svg/undraw_progressive.svg" alt="responsive web app icon" width="200px" height="100%"/>
+          </div>
+          <h3 class="h3">Responsive rich web applications</h3>
+          <p>I build progressive web applications that adapt to both desktop and mobile devices.
+            I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
         </div>
-        <h3 class="h3">Responsive rich web applications</h3>
-        <p>I build progressive web applications that adapt to both desktop and mobile devices.
-          I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps into the web</p>
-      </div>
-      <div class="mx-3 w-1/3">
-        <div class="img-container">
-          <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height="100%" />
+        <div class="mx-3 w-1/3">
+          <div class="img-container">
+            <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height="100%" />
+          </div>
+          <h3 class="h3">Fast by default</h3>
+          <p>
+            Most of the applications I have worked on, were targeted at folks with internet speeds slower than average and low-end devices, therefore I've developed an empathy and have tried to learn/use every common practise for making web applications fast.
+          </p>
         </div>
-        <h3 class="h3">Fast by default</h3>
-        <p>
-            I perform web applications audits to find bottlenecks and opportunities for optimization. These audits take place at both the client/server side.
-        </p>
-      </div>
-      <div class="mx-3 w-1/3">
-        <div class="img-container">
-          <img class="max-w-full" svg-inline src="~/assets/svg/undraw_To_the_stars_qhyy.svg" alt="responsive web app icon" width="200px" height="100%"/>
+        <div class="mx-3 w-1/3">
+          <div class="img-container">
+            <img class="max-w-full" svg-inline src="~/assets/svg/undraw_science_fqhl.svg" alt="responsive web app icon" width="200px" height="100%"/>
+          </div>
+          <h3 class="h3">Exciting challenges</h3>
+          <p>I'm always open to build cool things with cool people.</p>
         </div>
-        <h3 class="h3">Exciting challenges</h3>
-        <p>I'm always open to build cool things with cool people.</p>
       </div>
-    </div>
+    </section>
 
     <svg height="0" width="0">
       <defs>
         <clipPath clipPathUnits="objectBoundingBox" id="svgPath">
           <path d='M0.049,0.69 C0,0.643,0.001,0.545,0.02,0.481 C0.04,0.413,0.074,0.401,0.143,0.316 C0.268,0.165,0.238,0.111,0.319,0.059 C0.41,0,0.528,0.016,0.604,0.051 C0.678,0.086,0.668,0.12,0.781,0.2 C0.898,0.284,0.933,0.264,0.972,0.325 C1,0.425,0.998,0.563,0.99,0.594 C0.976,0.644,0.961,0.701,0.914,0.737 C0.847,0.789,0.793,0.741,0.715,0.787 C0.649,0.826,0.664,0.875,0.6,0.935 C0.507,1,0.339,1,0.273,0.979 C0.211,0.911,0.274,0.792,0.205,0.733 C0.154,0.69,0.099,0.737,0.049,0.69'>
-
           </path>
         </clipPath>
       </defs>
