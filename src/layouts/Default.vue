@@ -118,9 +118,12 @@ const initPullArrow = () => {
 
 const rotateArrow = (event) => {
   const $arrowContainer = document.querySelector('.striker-container');
-  const center = [$arrowContainer.offsetLeft + $arrowContainer.offsetWidth / 2, $arrowContainer.offsetTop + $arrowContainer.offsetHeight / 2]
+  const center = [
+    $arrowContainer.getBoundingClientRect().left + $arrowContainer.getBoundingClientRect().width / 2,
+    $arrowContainer.getBoundingClientRect().top + $arrowContainer.getBoundingClientRect().height / 2
+  ];
   const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
-  gsap.to('.arrow-group', {transformOrigin: `${center.join(',')}`, duration:0.2, rotation: `${angle-96}`});
+  gsap.to('.arrow-group', {transformOrigin: `50% 50%`, duration:0.2, rotation: `${angle-90}`});
 }
 
 
