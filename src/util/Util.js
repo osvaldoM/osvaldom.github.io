@@ -20,7 +20,7 @@ const SVGToScreen = (svg, svgX, svgY) => {
 
 const checkFetchResponseStatus = (response) => {
 
-    if (!response.ok) {
+    if (response.ok) {
         return Promise.resolve(response)
     } else {
         return Promise.reject(new Error(response.statusText))

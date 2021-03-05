@@ -73,8 +73,10 @@
                  width="300px"/>
 
             <div class="relative h-20 w-full feedback-messages-container">
-              <p class="success-message absolute w-full bg-green-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0 hidden"> Success </p>
-              <p class="error-message absolute w-full bg-red-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0 hidden"> Error</p>
+              <p class="success-message absolute w-full text-green-600 font-bold text-center mb-0 py-2 rounded-lg top-0 hidden"> Message sent! </p>
+              <p class="error-message absolute w-full text-red-600 font-bold text-center mb-0 py-2 rounded-lg top-0 hidden">
+                Unable to send your message: <span class="error-message-details text-sm"></span>
+              </p>
             </div>
           </div>
           <form class="send-email-form" method="post" style="max-width: 400px" v-on:submit="sendEmail">
@@ -125,12 +127,11 @@ const initSendEmail = () => {
     const formData = new FormData(event.target);
 
     fetch('https://app.99inbound.com/api/e/Jnn_X4c-', {
-    //   fetch('https://app.99inbound.com/api/e/4fdfdfd', {
+      // fetch('https://app.99inbound.com/api/e/dummytestcode', {
       method: 'POST',
-      mode: 'no-cors',
       cache: 'no-cache',
       credentials: 'omit',
-      redirect: 'follow',
+      redirect: 'manual',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -142,10 +143,10 @@ const initSendEmail = () => {
           $formFeedback.classList.remove('error');
           tl.play();
         }).catch(err => {
-      console.log('there has been an error', err);
       $form.reset();
       $formFeedback.classList.add('error');
       $formFeedback.classList.remove('success');
+      $formFeedback.querySelector('.error-message-details').textContent = err;
       tl.play();
     });
   }
@@ -232,10 +233,12 @@ export default {
   top: -80px;
 }
 
-.form-feedback.success .success-message {
+.form-feedback.success .success-message,
+.form-feedback.success .success-sign {
   display: block;
 }
-.form-feedback.error .error-message {
+.form-feedback.error .error-message,
+.form-feedback.error .error-sign {
   display: block;
 }
 .success-message-svg {
