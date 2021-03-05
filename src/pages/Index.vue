@@ -68,8 +68,8 @@
       <section slot="body" class="">
         <div class="flex items-center">
           <div class="mr-20 flex flex-col self-stretch">
-            <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative" height="100%"
-                 src="~/assets/svg/undraw_Mail_sent_re_0ofv2.svg" svg-inline
+            <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative success-message-svg" height="100%"
+                 src="~/assets/svg/undraw_Mail_sent_re_0ofv4.svg" svg-inline
                  width="300px"/>
 
             <div class="relative h-20 w-full error-messages-container">
@@ -106,7 +106,7 @@ const initSendEmail = () => {
   const tl = anime.timeline({
     autoplay: false,
     // easing: 'easeOutBounce',
-    duration: 800,
+    duration: 3000,
   })
   tl.add({
     targets: $successMessage,
@@ -114,7 +114,7 @@ const initSendEmail = () => {
   });
   tl.add({
     targets: '.envelope-result',
-    translateY: -220,
+    translateY: -200,
   }, 0);
   return (event) => {
     tl.seek(0);
@@ -124,7 +124,7 @@ const initSendEmail = () => {
     const formData = new FormData(event.target);
 
     fetch('https://app.99inbound.com/api/e/Jnn_X4c-', {
-    // fetch('https://app.99inbound.com/api/e/4fdfdfd', {
+     // fetch('https://app.99inbound.com/api/e/4fdfdfd', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -224,9 +224,10 @@ export default {
   top: -80px;
 }
 
+.success-message-svg {
+  fill: white;
+}
+
 .envelope-result {
-  position: relative;
-  bottom: 100px;
-  //transform: translateY(200px);
 }
 </style>
