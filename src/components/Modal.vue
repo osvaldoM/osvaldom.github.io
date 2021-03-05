@@ -99,6 +99,12 @@
       return {
         showModal: false
       }
+    },
+    props: {
+      onMounted: {type: Function, default: null, required: false}
+    },
+    mounted(){
+      this.onMounted && this.onMounted();
     }
   }
 </script>

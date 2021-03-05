@@ -10,7 +10,7 @@
         </p>
         <div>
           <button class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</button>
-          <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg" @click="showModal = true">Let's talk</button>
+          <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg" @click="showModal">Let's talk</button>
         </div>
       </div>
       <div class="default-gradient px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
@@ -63,7 +63,7 @@
         </clipPath>
       </defs>
     </svg>
-    <modal v-if="showModal" @close="showModal = false">
+    <modal v-if="isModalVisible" @close="hideModal()" v-bind:on-mounted="addEventListeners">
 
       <section slot="body" class="">
         <div class="flex items-center">
@@ -161,7 +161,7 @@ export default {
   },
   data(){
     return {
-      showModal: true
+      isModalVisible: false
     }
   },
   mounted(){
@@ -195,10 +195,17 @@ export default {
       }
     }
     document.querySelector('.heading-area').addEventListener('mousemove', initHeadingAreaAnimation());
-    document.querySelector('.send-email-form').addEventListener('submit', initSendEmail());
   },
   methods: {
-    sendEmail(){
+    sendEmail(){},
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    },
+    addEventListeners() {
+      document.querySelector('.send-email-form').addEventListener('submit', initSendEmail());
     }
   }
 }
