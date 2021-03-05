@@ -67,14 +67,14 @@
 
       <section slot="body" class="">
         <div class="flex items-center">
-          <div class="mr-20 flex flex-col self-stretch">
+          <div class="mr-20 flex flex-col self-stretch form-feedback">
             <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative success-message-svg" height="100%"
                  src="~/assets/svg/undraw_Mail_sent_re_0ofv4.svg" svg-inline
                  width="300px"/>
 
-            <div class="relative h-20 w-full error-messages-container">
-              <p class="success-message absolute w-full bg-green-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0"> Success </p>
-              <p class="error-message absolute -bottom-1 w-full bg-red-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0"> Error</p>
+            <div class="relative h-20 w-full feedback-messages-container">
+              <p class="success-message absolute w-full bg-green-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0 hidden"> Success </p>
+              <p class="error-message absolute w-full bg-red-600 font-bold text-white text-center mb-0 py-2 rounded-lg top-0 hidden"> Error</p>
             </div>
           </div>
           <form class="send-email-form" method="post" style="max-width: 400px" v-on:submit="sendEmail">
@@ -82,10 +82,10 @@
             <div style="position: absolute; left: -5000px;">
               <input autocomplete="no" name="grandpas_beige_spotted_dishwasher" tabindex="-1" type="checkbox" value="1">
             </div>
-            <input autocomplete="name" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="name" placeholder="Your name" type="text"/>
-            <input autocomplete="email" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="email" placeholder="Your email address"
+            <input required autocomplete="name" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="name" placeholder="Your name" type="text"/>
+            <input required autocomplete="email" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="email" placeholder="Your email address"
                    type="email">
-            <textarea class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" cols="5" name="message" rows="6">
+            <textarea required class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" cols="5" name="message" rows="6">
             </textarea>
             <button class="text-center text-white font-bold w-full bg-rose-400 py-1.5 rounded-2xl" type="submit">Send</button>
           </form>
@@ -101,7 +101,7 @@ import modal from '~/components/Modal.vue'
 import {checkFetchResponseStatus} from "../util/Util";
 
 const initSendEmail = () => {
-  const $successMessage = document.querySelector('.success-message');
+  const $feedbackMessagesContainer = document.querySelector('.feedback-messages-container');
 
   const tl = anime.timeline({
     autoplay: false,
@@ -109,7 +109,7 @@ const initSendEmail = () => {
     duration: 3000,
   })
   tl.add({
-    targets: $successMessage,
+    targets: $feedbackMessagesContainer,
     translateY: 80,
   });
   tl.add({
@@ -121,23 +121,31 @@ const initSendEmail = () => {
     event.preventDefault();
     event.stopImmediatePropagation();
     const $form = event.target;
+    const $formFeedback = document.querySelector('.form-feedback');
     const formData = new FormData(event.target);
 
     fetch('https://app.99inbound.com/api/e/Jnn_X4c-', {
-     // fetch('https://app.99inbound.com/api/e/4fdfdfd', {
+    //   fetch('https://app.99inbound.com/api/e/4fdfdfd', {
       method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      redirect: 'follow',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(Object.fromEntries(formData)),
     }).then(checkFetchResponseStatus)
-        .then(jsonStream => jsonStream.json())
-        .then(jsonData => {
+        .then(response => {
           $form.reset();
+          $formFeedback.classList.add('success');
+          $formFeedback.classList.remove('error');
           tl.play();
         }).catch(err => {
       console.log('there has been an error', err);
       $form.reset();
+      $formFeedback.classList.add('error');
+      $formFeedback.classList.remove('success');
       tl.play();
     });
   }
@@ -220,10 +228,16 @@ export default {
   @apply mb-4;
 }
 
-.error-messages-container {
+.feedback-messages-container {
   top: -80px;
 }
 
+.form-feedback.success .success-message {
+  display: block;
+}
+.form-feedback.error .error-message {
+  display: block;
+}
 .success-message-svg {
   fill: white;
 }
