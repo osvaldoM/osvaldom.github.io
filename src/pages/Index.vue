@@ -26,7 +26,7 @@
       <div class="flex -mx-3 items-baseline">
         <div class="mx-3 w-1/3">
           <div class="img-container">
-            <img alt="responsive web app icon" class="max-w-full" height="100%" src="~/assets/svg/undraw_progressive.svg" svg-inline width="200px"/>
+            <g-image alt="responsive web app icon" class="max-w-full" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
           </div>
           <h3 class="h3">Responsive rich web applications</h3>
           <p>I build progressive web applications that adapt to both desktop and mobile devices.
@@ -35,7 +35,7 @@
         </div>
         <div class="mx-3 w-1/3">
           <div class="img-container">
-            <img alt="responsive web app icon" class="max-w-full" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
+            <g-image alt="responsive web app icon" class="max-w-full" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
                  width="200px"/>
           </div>
           <h3 class="h3">Fast by default</h3>
@@ -46,7 +46,7 @@
         </div>
         <div class="mx-3 w-1/3">
           <div class="img-container">
-            <img alt="responsive web app icon" class="max-w-full" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
+            <g-image alt="responsive web app icon" class="max-w-full" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
           </div>
           <h3 class="h3">Exciting challenges</h3>
           <p>I'm always open to build cool things with cool people.</p>
