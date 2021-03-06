@@ -190,6 +190,8 @@ body {
 
 .striker-svg {
   overflow: visible;
+  width: 70px;
+  height: auto;
 }
 .striker-svg.animating {
   position: relative;

@@ -82,7 +82,11 @@ module.exports = {
         .rule("vue")
         .use("vue-svg-inline-loader")
         .loader("vue-svg-inline-loader")
-        .options({ /* ... */ });
+        .options({
+          removeAttributes: ["alt", "src"],
+          svgo: true,
+          // verbose: true
+        });
     // config
     //     .plugin('BundleAnalyzerPlugin')
     //     .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
