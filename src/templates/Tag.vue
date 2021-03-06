@@ -7,7 +7,7 @@
   <ul class="tags flex mt-10 items-center">
     <span class="mr-4">Tags:</span>
     <li class="">
-      <g-link to="/Blog" class="tag py-4">
+      <g-link to="/blog" class="tag py-4">
         All articles
       </g-link>
     </li>
@@ -22,12 +22,6 @@
     <post-list v-bind:posts="$page.tag.belongsTo.edges"></post-list>
   </div>
 </div>
-<!--    <ul>-->
-<!--      <li v-for="post in $page.tag.belongsTo.edges" :key="post.node.id" >-->
-<!--        <h3><g-link :to="post.node.path">{{ post.node.title }}</g-link></h3>-->
-<!--        {{ post.node.date }}-->
-<!--      </li>-->
-<!--    </ul>-->
 </template>
 
 <page-query>

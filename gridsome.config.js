@@ -68,7 +68,7 @@ module.exports = {
         component: './src/templates/Article.vue'
       }
     ],
-    Tag: '/tag/:id',
+    Tag: '/blog/tag/:id',
   },
   css: {
     loaderOptions: {
