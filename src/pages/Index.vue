@@ -9,7 +9,7 @@
           <br/>
         </p>
         <div>
-          <button class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</button>
+          <g-link to="/portfolio" class="py-2 px-8 rounded font-bold shadow-lg border-orange-300 text-orange-300 border mr-5">My work</g-link >
           <button class="default-gradient py-2 px-8 text-white font-bold rounded shadow-lg" @click="showModal">Let's talk</button>
         </div>
       </div>
@@ -87,7 +87,7 @@
             <input required autocomplete="name" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="name" placeholder="Your name" type="text"/>
             <input required autocomplete="email" class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" name="email" placeholder="Your email address"
                    type="email">
-            <textarea required class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" cols="5" name="message" rows="6">
+            <textarea required class="w-full rounded-2xl bg-gray-200 px-4 py-2 mb-2" cols="5" name="message" rows="10">
             </textarea>
             <button class="text-center text-white font-bold w-full bg-rose-400 py-1.5 rounded-2xl" type="submit">Send</button>
           </form>

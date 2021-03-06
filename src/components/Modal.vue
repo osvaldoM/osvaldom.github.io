@@ -2,7 +2,7 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container rounded-3xl shadow-2xl">
+        <div class="modal-container rounded-2xl shadow-2xl">
 
           <div class="modal-header">
             <slot name="header">
@@ -37,7 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(252 186 116 / 90%);
   display: table;
   transition: opacity 0.3s ease;
 }
