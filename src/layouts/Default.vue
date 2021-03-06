@@ -35,7 +35,7 @@
         </ul>
       </footer>
       <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-        <g-image class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
       </div>
     </div>
   </div>
