@@ -20,7 +20,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 module.exports = {
   siteName: 'osvaldom',
   siteDescription: 'Osvaldo\'s online location',
-  siteUrl: 'https://osvaldom.github.io',
+  siteUrl: 'https://www.osvaldom.online',
   titleTemplate: '%s - osvaldom',
   // pathPrefix: '/osvaldom.github.io',
   plugins: [
