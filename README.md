@@ -1,3 +1,5 @@
+![example workflow](https://github.com/osvaldom/osvaldom.github.io/actions/workflows/gridsome-build.yml/badge.svg)
+
 # Default starter for Gridsome
 
 This is the project you get when you run `gridsome create new-project`.
