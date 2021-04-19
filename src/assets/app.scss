@@ -39,3 +39,9 @@ html {
   height: 100%;
   color: #333f48;
 }
+
+body.modal-open{
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}

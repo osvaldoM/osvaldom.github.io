@@ -1,12 +1,14 @@
 <template functional>
   <transition name="modal">
-    <div class="modal-mask">
+    <div class="modal-mask" v-if="props.isModalVisible">
       <div class="modal-wrapper">
-        <div class="modal-container rounded-2xl shadow-2xl">
-
+        <div class="modal-container rounded-t-2xl xl:rounded-xl xl:shadow-2xl">
+          <button class="w-full text-center xl:hidden" @click="listeners['update:isModalVisible'](false)">
+            <span class="bg-gray-200 w-8 h-1 rounded-2xl inline-block"></span>
+          </button>
           <div class="modal-header">
             <slot name="header">
-                <button class="modal-default-button" @click="listeners['update:isModalVisible'](false)">
+                <button class="modal-default-button hidden xl:block" @click="listeners['update:isModalVisible'](false)">
                     x
                 </button>
             </slot>
@@ -40,29 +42,26 @@
   background-color: rgb(252 186 116 / 90%);
   display: table;
   transition: opacity 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal-wrapper {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 .modal-container {
-  max-width: 800px;
-  margin: 0px auto;
-  padding: 20px 30px;
+  margin: 0 auto;
   background-color: #fff;
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+  transition: all 0.5s ease;
+  max-height: calc(100vh);
+  overflow-y: auto;
 }
 
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
 }
 
 .modal-default-button {
@@ -79,32 +78,41 @@
  */
 
 .modal-enter {
-  opacity: 0;
+  opacity: 0
 }
 
-.modal-leave-active {
-  opacity: 0;
+.modal-leave-to {
+  opacity: 0
 }
+
+.modal-leave-active,
+.modal-enter-active {
+  transition:  1s;
+}
+
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  transform: translate(0, 100%);
+}
+
+@media screen and (min-width: 1280px){
+  .modal-wrapper {
+    vertical-align: middle;
+  }
+  .modal-body {
+    margin: 20px 0;
+  }
+  .modal-container {
+    max-width: 800px;
+    padding: 20px 30px;
+    transition: all 0.5s ease;
+  }
+
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
 </style>
-
-<!--<script>-->
-<!--  export default {-->
-<!--    data() {-->
-<!--      return {-->
-<!--        showModal: false-->
-<!--      }-->
-<!--    },-->
-<!--    props: {-->
-<!--      onMounted: {type: Function, default: null, required: false}-->
-<!--    },-->
-<!--    mounted(){-->
-<!--      this.onMounted && this.onMounted();-->
-<!--    }-->
-<!--  }-->
-<!--</script>-->
