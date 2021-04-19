@@ -1,6 +1,6 @@
 <template functional>
-<!--  <transition name="modal">-->
-    <div class="modal-mask" v-if="props.isModalVisible">
+  <transition name="modal">
+    <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container rounded-2xl shadow-2xl">
 
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-<!--  </transition>-->
+  </transition>
 </template>
 
 <style>
