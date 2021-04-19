@@ -63,8 +63,7 @@
         </clipPath>
       </defs>
     </svg>
-    <modal v-if="isModalVisible" @close="hideModal()" v-bind:on-mounted="addEventListeners">
-
+    <modal :is-modal-visible.sync="isModalVisible" test="test">
       <section slot="body" class="">
         <div class="flex items-center">
           <div class="mr-20 flex flex-col self-stretch form-feedback">
@@ -99,7 +98,7 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
-import modal from '~/components/Modal.vue'
+import modal from '~/components/base-components/BaseModal.vue'
 import {checkFetchResponseStatus} from "../util/Util";
 
 const initSendEmail = () => {

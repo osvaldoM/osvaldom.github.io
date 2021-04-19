@@ -1,12 +1,12 @@
-<template>
-  <transition name="modal">
-    <div class="modal-mask">
+<template functional>
+<!--  <transition name="modal">-->
+    <div class="modal-mask" v-if="props.isModalVisible">
       <div class="modal-wrapper">
         <div class="modal-container rounded-2xl shadow-2xl">
 
           <div class="modal-header">
             <slot name="header">
-                <button class="modal-default-button" @click="$emit('close')">
+                <button class="modal-default-button" @click="listeners['update:isModalVisible'](false)">
                     x
                 </button>
             </slot>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </transition>
+<!--  </transition>-->
 </template>
 
 <style>
@@ -93,18 +93,18 @@
 }
 </style>
 
-<script>
-  export default {
-    data() {
-      return {
-        showModal: false
-      }
-    },
-    props: {
-      onMounted: {type: Function, default: null, required: false}
-    },
-    mounted(){
-      this.onMounted && this.onMounted();
-    }
-  }
-</script>
+<!--<script>-->
+<!--  export default {-->
+<!--    data() {-->
+<!--      return {-->
+<!--        showModal: false-->
+<!--      }-->
+<!--    },-->
+<!--    props: {-->
+<!--      onMounted: {type: Function, default: null, required: false}-->
+<!--    },-->
+<!--    mounted(){-->
+<!--      this.onMounted && this.onMounted();-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
