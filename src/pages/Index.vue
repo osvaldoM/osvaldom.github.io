@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class="heading-area flex items-start mt-40">
-      <div class=" flex-grow-0 mr-48">
+    <section class="heading-area flex flex-col-reverse xl:flex-row items-center xl:items-start xl:mt-40">
+      <div class="flex-grow-0 xl:mr-48">
         <p class="text-xl mb-2">Hi, my name is Osvaldo, </p>
 
         <p class="text-2xl font-semibold mb-6">
@@ -23,8 +23,8 @@
 
     <section class="mt-20">
       <h2 class="mb-4">What I do</h2>
-      <div class="flex -mx-3 items-baseline">
-        <div class="mx-3 w-1/3">
+      <div class="flex flex-col xl:flex-row -mx-3 items-center xl:items-baseline">
+        <div class="mx-3 xl:w-1/3">
           <div class="feature-img-container">
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
           </div>
@@ -33,7 +33,7 @@
             I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps
             into the web</p>
         </div>
-        <div class="mx-3 w-1/3">
+        <div class="mx-3 xl:w-1/3">
           <div class="feature-img-container">
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
                  width="200px"/>
@@ -44,7 +44,7 @@
             I've developed an empathy and have tried to learn/use every common practise for making web applications fast.
           </p>
         </div>
-        <div class="mx-3 w-1/3">
+        <div class="mx-3 xl:w-1/3">
           <div class="feature-img-container">
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
           </div>

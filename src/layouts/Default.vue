@@ -1,13 +1,14 @@
 <template>
-  <div class="bg-gradient-to-r from-rose-400 to-orange-300 py-10 relative px-20">
-    <div class="container page-container mx-auto bg-white rounded-3xl px-24 py-5 shadow-2xl relative">
-      <header class="header flex justify-between items-center mb-6" v-on:mousemove="throttledRotateArrow">
-        <g-link class="" to="/" exact>
+  <div class="bg-gradient-to-r from-rose-400 to-orange-300 relative py-2 xl:py-10 px-2 xl:px-20">
+    <div class="container page-container mx-auto bg-white rounded-3xl px-2 xl:px-24 py-32 xl:py-5 shadow-2xl relative">
+      <header class="header fixed bottom-0 left-0 xl:static flex justify-between items-center mb-6 w-full xl:w-auto px-4 xl:px-0"
+              v-on:mousemove="throttledRotateArrow">
+        <g-link class="hidden xl:block" to="/" exact>
 <!--          {{ $static.metadata.siteName }}-->
           <g-image src="~/assets/images/osvaldo.png" width="50"/>
         </g-link>
-        <nav class="nav -mr-24">
-          <ul class="flex">
+        <nav class="nav xl:-mr-24 w-full xl:w-auto">
+          <ul class="flex justify-between">
             <li class="nav__item">
               <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >Home</g-link>
             </li>
@@ -25,7 +26,7 @@
         <slot/>
       </main>
 
-      <footer class="mt-20 absolute bottom-4 left-0 w-full px-24">
+      <footer class="mt-20 absolute bottom-4 left-0 w-full px-24 hidden xl:block">
         <ul class="home-links flex">
           <li class="mr-2"><a href="https://github.com/osvaldoM" target="_blank" rel="noopener">GitHub</a></li>
           <li class="mr-2"><a href="https://twitter.com/impurefunction" target="_blank" rel="noopener">Twitter</a></li>
@@ -170,9 +171,6 @@ body {
 .nav__link {
   //margin-left: 20px;
 }
-.nav__item {
-  min-width: 8rem;
-}
 
 .nav__link.active {
   @apply rounded-2xl bg-rose-400 py-2 px-4 text-white
@@ -188,11 +186,24 @@ body {
   //overflow: visible;
 }
 
+.striker-container {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+
 .striker-svg {
   overflow: visible;
   width: 70px;
   height: auto;
 }
+
+.striker-svg {
+  width: 40px;
+}
+
 .striker-svg.animating {
   position: relative;
   top:10px;
