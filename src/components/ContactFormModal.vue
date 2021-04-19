@@ -1,11 +1,11 @@
 <template>
   <base-modal :is-modal-visible="isModalVisible" v-on="$listeners">
     <section slot="body">
-      <div class="flex items-center">
-        <div class="mr-20 flex flex-col self-stretch form-feedback">
-          <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative success-message-svg" height="100%"
+      <div class="flex flex-col xl:flex-row items-center">
+        <div class="xl:mr-20 flex flex-col items-center xl:flex-row self-stretch form-feedback">
+          <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative pt-3 success-message-svg" height="100%"
                src="~/assets/svg/undraw_Mail_sent_re_0ofv4.svg" svg-inline
-               width="300px"/>
+               width="200px"/>
 
           <div class="relative h-20 w-full feedback-messages-container">
             <p class="success-message absolute w-full text-green-600 font-bold text-center mb-0 py-2 rounded-lg top-0 hidden"> Message sent! </p>

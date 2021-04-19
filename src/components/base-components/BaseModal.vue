@@ -57,6 +57,7 @@
   transition: all 0.5s ease;
   max-height: calc(100vh);
   overflow-y: auto;
+  padding: 20px 20px;
 }
 
 .modal-header h3 {
@@ -105,7 +106,6 @@
   }
   .modal-container {
     max-width: 800px;
-    padding: 20px 30px;
     transition: all 0.5s ease;
   }
 
