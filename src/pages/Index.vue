@@ -2,9 +2,9 @@
   <div>
     <section class="heading-area flex flex-col-reverse xl:flex-row items-center xl:items-start xl:mt-40">
       <div class="flex-grow-0 xl:mr-48">
-        <p class="text-xl mb-2">Hi, my name is Osvaldo, </p>
+        <p class="text-xl mb-2 text-center xl:text-left">Hi, my name is Osvaldo, </p>
 
-        <p class="text-2xl font-semibold mb-6">
+        <p class="text-2xl font-semibold mb-6 text-center xl:text-left">
           I love making beautiful designs and seamless interactions come to life in the form of web pages.
           <br/>
         </p>
@@ -28,7 +28,7 @@
           <div class="feature-img-container">
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
           </div>
-          <h3 class="h3">Responsive rich web applications</h3>
+          <h3 class="text-center">Responsive rich web applications</h3>
           <p>I build progressive web applications that adapt to both desktop and mobile devices.
             I also strive to harness the latest web capabilities such as web bluetooth, offline support and more to bring the power of native apps
             into the web</p>
@@ -38,7 +38,7 @@
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
                  width="200px"/>
           </div>
-          <h3 class="h3">Fast by default</h3>
+          <h3 class="text-center">Fast by default</h3>
           <p>
             Most of the applications I have worked on, were targeted at folks with internet speeds slower than average and low-end devices, therefore
             I've developed an empathy and have tried to learn/use every common practise for making web applications fast.
@@ -48,7 +48,7 @@
           <div class="feature-img-container">
             <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
           </div>
-          <h3 class="h3">Exciting challenges</h3>
+          <h3 class="text-center">Exciting challenges</h3>
           <p>I'm always open to build cool things with cool people.</p>
         </div>
       </div>
@@ -151,6 +151,7 @@ export default {
 }
 
 .feature-img {
+  @apply mx-auto;
   width: 200px;
   height: auto;
 }

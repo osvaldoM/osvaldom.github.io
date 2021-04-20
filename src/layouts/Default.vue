@@ -1,7 +1,14 @@
 <template>
-  <div class="bg-gradient-to-r from-rose-400 to-orange-300 relative py-2 xl:py-10 px-2 xl:px-20">
-    <div class="container page-container mx-auto bg-white rounded-3xl px-2 xl:px-24 py-32 xl:py-5 shadow-2xl relative">
-      <header class="header fixed bottom-0 left-0 xl:static flex justify-between items-center mb-6 w-full xl:w-auto px-4 xl:px-0"
+  <div class="bg-gradient-to-r from-rose-400 to-orange-300 relative xl:py-10  xl:px-20">
+    <div class="container page-container mx-auto bg-white xl:rounded-3xl px-2 xl:px-24 py-2 xl:py-5 shadow-2xl relative">
+      <header
+          class="header
+          fixed bottom-0 left-0 xl:static
+          flex justify-between items-center
+          xl:mb-6
+          w-full xl:w-auto
+          px-4 py-2 xl:px-0 xl:py-0
+          bg-gray-50 border-t xl:bg-transparent xl:border-none"
               v-on:mousemove="throttledRotateArrow">
         <g-link class="hidden xl:block" to="/" exact>
 <!--          {{ $static.metadata.siteName }}-->
@@ -10,13 +17,20 @@
         <nav class="nav xl:-mr-24 w-full xl:w-auto">
           <ul class="flex justify-between">
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >Home</g-link>
+              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >
+                <img class="mx-auto block" svg-inline src="~/assets/icons/home.svg" width="30" />
+                Home
+              </g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">Portfolio</g-link>
+              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">
+                <img class="mx-auto block" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
+                Portfolio</g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">Blog</g-link>
+              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">
+                <img class="mx-auto block" svg-inline src="~/assets/icons/book-open.svg" width="30" />
+                Blog</g-link>
             </li>
           </ul>
         </nav>
@@ -35,8 +49,8 @@
           <li class="ml-auto"><span class=""> copyright@{{ $static.metadata.year }}</span></li>
         </ul>
       </footer>
-      <div class="striker-container bg-white rounded-full flex justify-center items-center ">
-        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
+      <div class="striker-container default-gradient xl:bg-white rounded-full flex justify-center items-center ">
+        <img class="max-w-full striker-svg fill-current text-white xl:text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
       </div>
     </div>
   </div>
@@ -168,12 +182,19 @@ body {
   height: 80px;
 }
 
+.header {
+  height: 60px;
+}
+
 .nav__link {
   //margin-left: 20px;
 }
 
 .nav__link.active {
-  @apply rounded-2xl bg-rose-400 py-2 px-4 text-white
+  //@apply rounded-2xl bg-rose-400 py-2 px-4 text-white
+}
+.nav__link.active {
+  @apply text-rose-400
 }
 
 .striker-container {
@@ -188,10 +209,10 @@ body {
 
 .striker-container {
   position: fixed;
-  top: 10px;
-  left: 0;
-  width: 80px;
-  height: 80px;
+  top: -15px;
+  left: -15px;
+  width: 70px;
+  height: 70px;
 }
 
 .striker-svg {
@@ -201,7 +222,7 @@ body {
 }
 
 .striker-svg {
-  width: 40px;
+  width: 30px;
 }
 
 .striker-svg.animating {
