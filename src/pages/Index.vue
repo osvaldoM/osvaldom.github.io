@@ -169,19 +169,20 @@ const initLabSectionAnimation = () => {
       begin: function(anim) {
           if(loopCount < MAX_ANIMATION_LOOP_COUNT) {
             setTimeout(() => {
+              console.log('bro');
               const clones = Array.from(labImageCircles, node => node.cloneNode(true));
               const svg = document.querySelector('.lab-image');
               svg.append(...clones);
               loopCount++;
               animateCircles(clones);
-            }, 800)
+            }, 1500)
           }
       }
     })
         .add({
           targets: circles,
           translateY: -100,
-          duration: 1500,
+          duration: 3000,
           easing: 'easeInOutSine'
         })
         .add({
@@ -189,7 +190,7 @@ const initLabSectionAnimation = () => {
           opacity: [1,0],
           duration: 500,
           easing: 'easeInOutSine',
-        }, 1000);
+        }, 2500);
   }
 
   animateCircles(labImageCircles);
