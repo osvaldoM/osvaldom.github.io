@@ -35,7 +35,7 @@
         </div>
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
+            <img alt="responsive web app icon" class="max-w-full feature-img rocket-image" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
                  width="200px"/>
           </div>
           <h3 class="text-center">Fast by default</h3>
@@ -46,7 +46,7 @@
         </div>
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
+            <img alt="responsive web app icon" class="max-w-full feature-img lab-image" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
           </div>
           <h3 class="text-center">Exciting challenges</h3>
           <p>I'm always open to build cool things with cool people.</p>
@@ -71,7 +71,9 @@
 <script>
 import anime from 'animejs/lib/anime.es.js';
 import ContactFormModal from "../components/ContactFormModal";
-const initHeadingAreaAnimation = () => {
+
+const MAX_ANIMATION_LOOP_COUNT = 10;
+const initHeadingSectionAnimation = () => {
   let timeout;
   let animation = anime({
     targets: '#svgPath path',
@@ -135,6 +137,63 @@ const initIntroTextAnimation = () => {
   // }
   // );
 }
+
+const initActivitiesSectionAnimation = () => {
+  anime.timeline({loop: MAX_ANIMATION_LOOP_COUNT, direction: 'alternate'})
+      .add({
+        targets: '.phone-group',
+        translateX: -100,
+        duration: 1000,
+        easing: 'easeInOutSine'
+      })
+      .add({
+        targets: '.computer-group',
+        translateX: 100,
+        duration: 1000,
+        easing: 'easeInOutSine'
+      });
+}
+
+const initLabSectionAnimation = () => {
+  let loopCount = 0;
+  const labImageCircles = document.querySelectorAll('.lab-image > .lab-circles');
+
+  const animateCircles = (circles) => {
+    anime.set(circles, {
+      translateY: 100,
+      opacity: 0
+    });
+    anime.timeline({
+      loop: false,
+      // delay: 15000,
+      begin: function(anim) {
+          if(loopCount < MAX_ANIMATION_LOOP_COUNT) {
+            setTimeout(() => {
+              const clones = Array.from(labImageCircles, node => node.cloneNode(true));
+              const svg = document.querySelector('.lab-image');
+              svg.append(...clones);
+              loopCount++;
+              animateCircles(clones);
+            }, 800)
+          }
+      }
+    })
+        .add({
+          targets: circles,
+          translateY: -100,
+          duration: 1500,
+          easing: 'easeInOutSine'
+        })
+        .add({
+          targets: circles,
+          opacity: [1,0],
+          duration: 500,
+          easing: 'easeInOutSine',
+        }, 1000);
+  }
+
+  animateCircles(labImageCircles);
+}
 export default {
   components: {
     ContactFormModal
@@ -149,7 +208,9 @@ export default {
   },
   mounted(){
     initIntroTextAnimation();
-    document.querySelector('.heading-area').addEventListener('mousemove', initHeadingAreaAnimation());
+    initActivitiesSectionAnimation();
+    initLabSectionAnimation();
+    document.querySelector('.heading-area').addEventListener('mousemove', initHeadingSectionAnimation());
   },
   methods: {
     showModal() {
