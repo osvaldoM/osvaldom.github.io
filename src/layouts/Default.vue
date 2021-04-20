@@ -6,7 +6,7 @@
           fixed bottom-0 left-0 xl:static
           flex justify-between items-center
           xl:mb-6
-          w-full xl:w-auto
+          w-screen xl:w-auto
           px-4 py-2 xl:px-0 xl:py-0
           bg-gray-50 border-t xl:bg-transparent xl:border-none"
               v-on:mousemove="throttledRotateArrow">
