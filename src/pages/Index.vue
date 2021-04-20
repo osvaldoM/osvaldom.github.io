@@ -26,7 +26,7 @@
       <div class="flex flex-col xl:flex-row xl:-mx-3 items-center xl:items-baseline">
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
+            <img alt="responsive web app icon" class="max-w-full feature-img desktop-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
           </div>
           <h3 class="text-center">Responsive rich web applications</h3>
           <p>I build progressive web applications that adapt to both desktop and mobile devices.
@@ -209,9 +209,27 @@ export default {
   },
   mounted(){
     initIntroTextAnimation();
-    initActivitiesSectionAnimation();
-    initLabSectionAnimation();
+    // initActivitiesSectionAnimation();
+    // initLabSectionAnimation();
     document.querySelector('.heading-area').addEventListener('mousemove', initHeadingSectionAnimation());
+
+    const activitiesSection = document.querySelectorAll('.feature-img');
+    var io = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if(entry.target.classList.contains('desktop-img')) {
+              initActivitiesSectionAnimation();
+            } else if(entry.target.classList.contains('lab-image')){
+              initLabSectionAnimation();
+            }
+          });
+        },
+        {
+          /* Using default options. Details below */
+        }
+    );
+// Start observing an element
+    activitiesSection.forEach(section => io.observe(section));
   },
   methods: {
     showModal() {
