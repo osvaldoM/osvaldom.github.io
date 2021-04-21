@@ -18,18 +18,18 @@
           <ul class="flex justify-between">
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >
-                <img class="mx-auto block" svg-inline src="~/assets/icons/home.svg" width="30" />
+                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/home.svg" width="30" />
                 Home
               </g-link>
             </li>
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">
-                <img class="mx-auto block" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
+                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
                 Portfolio</g-link>
             </li>
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">
-                <img class="mx-auto block" svg-inline src="~/assets/icons/book-open.svg" width="30" />
+                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/book-open.svg" width="30" />
                 Blog</g-link>
             </li>
           </ul>
@@ -49,8 +49,8 @@
           <li class="ml-auto"><span class=""> copyright@{{ $static.metadata.year }}</span></li>
         </ul>
       </footer>
-      <div class="striker-container default-gradient xl:bg-white rounded-full flex justify-center items-center ">
-        <img class="max-w-full striker-svg fill-current text-white xl:text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
+      <div class="striker-container bg-gray-100 xl:bg-white rounded-full flex justify-center items-center ">
+        <img class="max-w-full striker-svg fill-current text-rose-400" svg-inline src="~/assets/svg/bow-and-arrow-o.svg" alt="responsive web app icon" width="70px"/>
       </div>
     </div>
   </div>
@@ -186,34 +186,6 @@ export default {
 }
 .nav__link.active {
   @apply text-rose-400
-}
-
-.striker-container {
-  position: absolute;
-  top: 660px;
-  left: -80px;
-  width: 160px;
-  height: 160px;
-  z-index: 5;
-  //overflow: visible;
-}
-
-.striker-container {
-  position: fixed;
-  top: -15px;
-  left: -15px;
-  width: 70px;
-  height: 70px;
-}
-
-.striker-svg {
-  overflow: visible;
-  width: 70px;
-  height: auto;
-}
-
-.striker-svg {
-  width: 30px;
 }
 
 .striker-svg.animating {

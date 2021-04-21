@@ -53,7 +53,24 @@ body.modal-open{
   overflow-y: hidden;
   padding-right: 15px;
 }
+.page-container {
+  min-height: 100vh;
+}
 
+.striker-container {
+  position: fixed;
+  top: -15px;
+  left: -15px;
+  width: 70px;
+  height: 70px;
+  z-index: 5;
+}
+
+.striker-svg {
+  overflow: visible;
+  height: auto;
+  width: 30px;
+}
 @media screen and (min-width: 1280px){
   .success-message-svg {
     width: 300px;
@@ -61,7 +78,15 @@ body.modal-open{
   .nav__item {
     min-width: 8rem;
   }
-  .page-container {
-    min-height: 1000px;
+  .striker-container {
+    position: absolute;
+    top: 660px;
+    left: -80px;
+    width: 160px;
+    height: 160px;
   }
+  .striker-svg {
+    width: 70px;
+  }
+
 }

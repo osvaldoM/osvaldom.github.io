@@ -6,7 +6,7 @@
 
     <hr class="my-5"/>
 
-    <ul class="tags flex mt-10 items-center">
+    <ul class="tags flex mt-10 items-center overflow-x-scroll">
       <span class="mr-4">Tags:</span>
       <li class="">
         <g-link :to="currentRoute" class="tag py-4">
@@ -89,7 +89,7 @@ export default {
 //@import 'prismjs/themes/prism.css';
 
 .tag {
-  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 block whitespace-nowrap;
 }
 
 .tag.active--exact {

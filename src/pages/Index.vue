@@ -75,7 +75,7 @@
 import anime from 'animejs/lib/anime.es.js';
 import ContactFormModal from "../components/ContactFormModal";
 
-const MAX_ANIMATION_LOOP_COUNT = 15;
+const MAX_ANIMATION_LOOP_COUNT = 5;
 const initHeadingSectionAnimation = () => {
   let timeout;
   let animation = anime({
@@ -118,27 +118,13 @@ const initIntroTextAnimation = () => {
       })
       .add({
         targets: '.ml2 .letter',
-        scale: [2,1],
+        scale: [1.1,1],
         opacity: [0,1],
         translateZ: 0,
         easing: "easeOutExpo",
         duration: 450,
         delay: (el, i) => 40*i
-      },2000)
-  // .add({
-  //   targets: '.ml2',
-  //   opacity: 0,
-  //   duration: 500,
-  //   easing: "easeOutExpo",
-  //   delay: 1000
-  // })
-  // .add({
-  //   targets: '.contact-btn',
-  //   scale: [0.8, 1.2],
-  //   duration: 1000,
-  //   easing: 'easeInExpo'
-  // }
-  // );
+      },2000);
 }
 
 const initActivitiesSectionAnimation = () => {
