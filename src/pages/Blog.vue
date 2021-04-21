@@ -89,7 +89,7 @@ export default {
 //@import 'prismjs/themes/prism.css';
 
 .tag {
-  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 block whitespace-nowrap;
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 inline-block whitespace-nowrap;
 }
 
 .tag.active--exact {
