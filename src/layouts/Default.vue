@@ -134,13 +134,13 @@ const initPullArrow = () => {
   }
 }
 
-const rotateArrow = (event) => {
+const rotateArrow = ({pageX, pageY}) => {
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [
     $arrowContainer.getBoundingClientRect().left + $arrowContainer.getBoundingClientRect().width / 2,
     $arrowContainer.getBoundingClientRect().top + $arrowContainer.getBoundingClientRect().height / 2
   ];
-  const angle = Math.atan2(event.pageX - center[0], -(event.pageY - center[1])) *(180/Math.PI)
+  const angle = Math.atan2(pageX - center[0], -(pageY - center[1])) *(180/Math.PI)
   gsap.to('.arrow-group', {transformOrigin: `50% 50%`, duration:0.2, rotation: `${angle-90}`});
 }
 
@@ -157,6 +157,9 @@ export default {
     addEventListenerList($linkList, 'mouseover', pullArrow);
     addEventListenerList($linkList, 'mouseout', pullArrow);
     addEventListenerList($linkList, 'click', pullArrow);
+
+    const $activeLink = Array.from($linkList).find($link => $link.classList.contains('active'))
+    rotateArrow({pageX: $activeLink.getBoundingClientRect().x, pageY: $activeLink.getBoundingClientRect().y});
   },
   methods: {
     throttledRotateArrow: throttle(rotateArrow, 300),
@@ -166,18 +169,6 @@ export default {
 </script>
 
 <style lang="scss">
-/*@font-face {*/
-/*  font-family: Northwell;*/
-/*  src: url('../assets/Northwell.otf');*/
-/*  font-weight: normal;*/
-/*}*/
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
 .header {
   height: 80px;
 }
@@ -234,7 +225,6 @@ body {
 }
 
 .page-container {
-  min-height: 1000px;
   padding-bottom: 90px;
 }
 </style>

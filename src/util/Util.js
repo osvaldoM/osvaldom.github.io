@@ -27,9 +27,15 @@ const checkFetchResponseStatus = (response) => {
     }
 }
 
+const isSmallScreen = () => {
+    let mediaQueryList = window.matchMedia('(max-width: 1280px)');
+    return mediaQueryList.matches;
+}
+
 export {
     addEventListenerList,
     screenToSVG,
     SVGToScreen,
-    checkFetchResponseStatus
+    checkFetchResponseStatus,
+    isSmallScreen
 }
