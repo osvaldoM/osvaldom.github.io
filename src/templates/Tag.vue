@@ -11,7 +11,7 @@
         All articles
       </g-link>
     </li>
-    <li class="" v-for="edge in $page.tags.edges" :key="edge.node.id">
+    <li class="" v-for="edge in tags" :key="edge.node.id">
       <g-link :to="edge.node.path" class="tag">
         {{ edge.node.title }}
       </g-link>
@@ -28,6 +28,7 @@
 query Tag ($id: ID!, $page: Int) {
   tag: tag (id: $id) {
     title
+    id
     belongsTo (page: $page, perPage: 30) @paginate {
       totalCount
       pageInfo {
@@ -54,6 +55,7 @@ query Tag ($id: ID!, $page: Int) {
   tags: allTag{
     edges {
       node {
+        id
         title
         path
       }
@@ -78,6 +80,19 @@ export default {
       title: `Tag: ${this.$page.tag.title}`
     }
   },
+  computed: {
+    tags(){
+      const currentTag = this.$page.tag;
+      return this.$page.tags.edges.sort((tag1, tag2) => {
+        if(tag1.node.id === currentTag.id) {
+          return -1;
+        } else if (tag2.node.id === currentTag.id) {
+          return 1
+        }
+        return 0;
+      });
+    }
+  }
 }
 </script>
 
