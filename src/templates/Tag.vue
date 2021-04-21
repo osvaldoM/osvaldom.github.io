@@ -4,7 +4,7 @@
 
   <hr class="my-5"/>
 
-  <ul class="tags flex mt-10 items-center overflow-x-scroll">
+  <ul class="tags flex mt-10 items-center overflow-x-auto">
     <span class="mr-4">Tags:</span>
     <li class="">
       <g-link to="/blog" class="tag py-4">
