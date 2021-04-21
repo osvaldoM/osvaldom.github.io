@@ -18,18 +18,18 @@
           <ul class="flex justify-between">
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >
-                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/home.svg" width="30" />
+                <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/home.svg" width="30" />
                 Home
               </g-link>
             </li>
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">
-                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
+                <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
                 Portfolio</g-link>
             </li>
             <li class="nav__item">
               <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">
-                <img class="mx-auto block xl:hidden" svg-inline src="~/assets/icons/book-open.svg" width="30" />
+                <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/book-open.svg" width="30" />
                 Blog</g-link>
             </li>
           </ul>
