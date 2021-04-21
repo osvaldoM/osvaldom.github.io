@@ -3,9 +3,11 @@
     <section slot="body">
       <div class="flex flex-col xl:flex-row items-center">
         <div class="xl:mr-20 flex flex-col items-center xl:flex-row self-stretch form-feedback">
-          <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative pt-3 success-message-svg" height="100%"
+          <div class="svg-wrapper w-full z-10 bg-white">
+          <img alt="responsive web app icon" class="max-w-full z-10 bg-white relative pt-3 success-message-svg mx-auto" height="100%"
                src="~/assets/svg/undraw_Mail_sent_re_0ofv4.svg" svg-inline
                width="200px"/>
+          </div>
 
           <div class="relative h-20 w-full feedback-messages-container">
             <p class="success-message absolute w-full text-green-600 font-bold text-center mb-0 py-2 rounded-lg top-0 hidden"> Message sent! </p>
@@ -38,26 +40,35 @@ import BaseModal from "./base-components/BaseModal";
 
 const initSendEmail = () => {
   const $feedbackMessagesContainer = document.querySelector('.feedback-messages-container');
+  const $formFeedback = document.querySelector('.form-feedback');
 
+  $formFeedback.classList.add('opacity-0', 'hidden', 'xl:block');
   const tl = anime.timeline({
     autoplay: false,
     // easing: 'easeOutBounce',
     duration: 3000,
   })
-  tl.add({
-    targets: $feedbackMessagesContainer,
-    translateY: 80,
-  });
-  tl.add({
-    targets: '.envelope-result',
-    translateY: -200,
-  }, 0);
+      .add({
+        targets: $formFeedback,
+        opacity: 1,
+        duration: 300,
+        begin: function (){
+          $formFeedback.style.display = 'block';
+        },
+      })
+      .add({
+        targets: $feedbackMessagesContainer,
+        translateY: 80,
+      })
+      .add({
+        targets: '.envelope-result',
+        translateY: -200,
+      }, 0);
   return (event) => {
     tl.seek(0);
     event.preventDefault();
     event.stopImmediatePropagation();
     const $form = event.target;
-    const $formFeedback = document.querySelector('.form-feedback');
     const formData = new FormData(event.target);
 
     fetch('https://app.99inbound.com/api/e/Jnn_X4c-', {
