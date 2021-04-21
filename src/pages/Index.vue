@@ -26,7 +26,7 @@
       <div class="flex flex-col xl:flex-row xl:-mx-3 items-center xl:items-baseline">
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img desktop-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
+            <img data-animator="desktop-img" alt="responsive web app icon" class="max-w-full feature-img" height="100%" width="200px" src="~/assets/svg/undraw_progressive.svg" svg-inline />
           </div>
           <h3 class="text-center">Responsive rich web applications</h3>
           <p>I build progressive web applications that adapt to both desktop and mobile devices.
@@ -35,7 +35,7 @@
         </div>
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img rocket-image" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
+            <img data-animator="rocket-image" alt="responsive web app icon" class="max-w-full feature-img rocket-image" height="100%" src="~/assets/svg/undraw_To_the_stars_qhyy.svg" svg-inline
                  width="200px"/>
           </div>
           <h3 class="text-center">Fast by default</h3>
@@ -46,7 +46,7 @@
         </div>
         <div class="xl:mx-3 xl:w-1/3">
           <div class="feature-img-container">
-            <img alt="responsive web app icon" class="max-w-full feature-img lab-image" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
+            <img data-animator="lab-image" alt="responsive web app icon" class="max-w-full feature-img" height="100%" src="~/assets/svg/undraw_science_fqhl.svg" svg-inline width="200px"/>
           </div>
           <h3 class="text-center">Exciting challenges</h3>
           <p>I'm always open to build cool things with cool people.</p>
@@ -63,6 +63,9 @@
         </clipPath>
       </defs>
     </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+      <path id="path2" class="cls-1" d="M 50 100 A 50 50 0 1 1 200 100 A 50 50 0 1 1 50 100 Z"/>
+    </svg>
     <contact-form-modal :is-modal-visible.sync="isModalVisible" v-if="isModalVisible">
     </contact-form-modal>
   </div>
@@ -72,7 +75,7 @@
 import anime from 'animejs/lib/anime.es.js';
 import ContactFormModal from "../components/ContactFormModal";
 
-const MAX_ANIMATION_LOOP_COUNT = 10;
+const MAX_ANIMATION_LOOP_COUNT = 15;
 const initHeadingSectionAnimation = () => {
   let timeout;
   let animation = anime({
@@ -139,7 +142,11 @@ const initIntroTextAnimation = () => {
 }
 
 const initActivitiesSectionAnimation = () => {
-  anime.timeline({loop: MAX_ANIMATION_LOOP_COUNT, direction: 'alternate'})
+  return anime.timeline({
+    loop: MAX_ANIMATION_LOOP_COUNT,
+    direction: 'alternate',
+    autoplay: false,
+  })
       .add({
         targets: '.phone-group',
         translateX: -100,
@@ -154,24 +161,41 @@ const initActivitiesSectionAnimation = () => {
       });
 }
 
+const initRocketSectionAnimation = () => {
+  const path = anime.path("#path2");
+
+  return anime.timeline({
+    loop: MAX_ANIMATION_LOOP_COUNT,
+    autoplay: false,
+  })
+      .add({
+        targets: '.rocket-image circle',
+        translateY: path("y"),
+        translateX: path("x"),
+        easing: "linear",
+        loop: true,
+        duration:4000
+      });
+}
+
 const initLabSectionAnimation = () => {
   let loopCount = 0;
-  const labImageCircles = document.querySelectorAll('.lab-image > .lab-circles');
+  const labImageCircles = document.querySelectorAll('.lab-circles');
 
   const animateCircles = (circles) => {
     anime.set(circles, {
       translateY: 100,
       opacity: 0
     });
-    anime.timeline({
+    return anime.timeline({
       loop: false,
-      // delay: 15000,
+      autoplay: true,
       begin: function(anim) {
           if(loopCount < MAX_ANIMATION_LOOP_COUNT) {
             setTimeout(() => {
-              console.log('bro');
+              console.log('maan');
               const clones = Array.from(labImageCircles, node => node.cloneNode(true));
-              const svg = document.querySelector('.lab-image');
+              const svg = labImageCircles.item(0).parentNode;
               svg.append(...clones);
               loopCount++;
               animateCircles(clones);
@@ -193,7 +217,7 @@ const initLabSectionAnimation = () => {
         }, 2500);
   }
 
-  animateCircles(labImageCircles);
+  return animateCircles(labImageCircles);
 }
 export default {
   components: {
@@ -209,23 +233,29 @@ export default {
   },
   mounted(){
     initIntroTextAnimation();
-    // initActivitiesSectionAnimation();
-    // initLabSectionAnimation();
     document.querySelector('.heading-area').addEventListener('mousemove', initHeadingSectionAnimation());
 
+    const animators = new Map([
+        ['desktop-img', initActivitiesSectionAnimation()],
+        ['lab-image', initLabSectionAnimation()],
+        ['rocket-image', initRocketSectionAnimation()],
+    ])
     const activitiesSection = document.querySelectorAll('.feature-img');
-    var io = new IntersectionObserver(
+    const io = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
-            if(entry.target.classList.contains('desktop-img')) {
-              initActivitiesSectionAnimation();
-            } else if(entry.target.classList.contains('lab-image')){
-              initLabSectionAnimation();
+            let animator = animators.get(entry.target.dataset['animator']);
+            if(entry.intersectionRatio == 1 && entry.isIntersecting){
+              animator.play();
+              console.log('playing', entry.target.dataset['animator'])
+            } else {
+              console.log('paused', entry.target.dataset['animator'])
+              animator.pause();
             }
           });
         },
         {
-          /* Using default options. Details below */
+          threshold: [0, 1.0]
         }
     );
 // Start observing an element
