@@ -4,7 +4,8 @@
 
 My Personal site built with [Gridsome](https://gridsome.org/)
 
-This is the project you get when you run `gridsome create new-project`.
+![Screenshot-2021-04-23-Home-osvaldom.png](https://i.postimg.cc/8ztbSfMd/Screenshot-2021-04-23-Home-osvaldom.png)
+
 
 ### 1. Install dependencies
 
