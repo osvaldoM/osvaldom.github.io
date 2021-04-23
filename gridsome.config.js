@@ -35,14 +35,6 @@ module.exports = {
             create: true
           },
         },
-        remark: {
-          // plugins: [[
-          //   '@gridsome/remark-prismjs',
-          //   {
-          //     transformInlineCode: true,
-          //   },
-          // ]],
-        },
       }
     },
   ],
