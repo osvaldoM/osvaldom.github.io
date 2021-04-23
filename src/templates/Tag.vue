@@ -7,12 +7,12 @@
   <ul class="tags flex mt-10 items-center overflow-x-auto">
     <span class="mr-4">Tags:</span>
     <li class="">
-      <g-link to="/blog" class="tag py-4">
+      <g-link to="/blog" class="post-tag py-4">
         All articles
       </g-link>
     </li>
     <li class="" v-for="edge in tags" :key="edge.node.id">
-      <g-link :to="edge.node.path" class="tag">
+      <g-link :to="edge.node.path" class="post-tag">
         {{ edge.node.title }}
       </g-link>
     </li>
@@ -97,11 +97,11 @@ export default {
 </script>
 
 <style scoped>
-.tag {
+.post-tag {
   @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
 }
 
-.tag.active--exact {
+.post-tag.active--exact {
   @apply bg-gray-800 text-white;
 }
 </style>

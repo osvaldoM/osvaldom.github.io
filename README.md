@@ -1,16 +1,17 @@
 ![example workflow](https://github.com/osvaldom/osvaldom.github.io/actions/workflows/gridsome-build.yml/badge.svg)
 
-# Default starter for Gridsome
+# [osvaldom.online](https://osvaldom.online/)
+
+My Personal site built with [Gridsome](https://gridsome.org/)
 
 This is the project you get when you run `gridsome create new-project`.
 
-### 1. Install Gridsome CLI tool if you don't have
+### 1. Install dependencies
 
-`npm install --global @gridsome/cli`
+`npm install`
 
-### 2. Create a Gridsome project
+### 2. Start local server
+`npm run develop` to start a local dev server at `http://localhost:8080`
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `npm run develop` to start a local dev server at `http://localhost:8080`
+
 4. Happy coding 🎉🙌

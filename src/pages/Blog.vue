@@ -6,15 +6,15 @@
 
     <hr class="my-5"/>
 
-    <ul class="tags flex mt-10 items-center overflow-x-auto">
-      <span class="mr-4">Tags:</span>
+    <ul class="post-tags flex mt-10 items-center overflow-x-auto">
+      <span class="mr-4">tags:</span>
       <li class="">
-        <g-link :to="currentRoute" class="tag py-4">
+        <g-link :to="currentRoute" class="post-tag py-4">
           All articles
         </g-link>
       </li>
       <li class="" v-for="edge in $page.tags.edges" :key="edge.node.id">
-        <g-link :to="edge.node.path" class="tag">
+        <g-link :to="edge.node.path" class="post-tag">
           {{edge.node.title}}
         </g-link>
       </li>
@@ -88,11 +88,11 @@ export default {
 
 //@import 'prismjs/themes/prism.css';
 
-.tag {
+.post-tag {
   @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 inline-block whitespace-nowrap;
 }
 
-.tag.active--exact {
+.post-tag.active--exact {
   @apply bg-gray-800 text-white;
 }
 
