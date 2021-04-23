@@ -23,6 +23,8 @@ jobs:
 
       - name: Build Gridsome site 🔧
         run: npm run build
+        env:
+          GRIDSOME_GOOGLE_ANALYTICS_ID: UA-66330737-1
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
