@@ -29,7 +29,7 @@
 
 <page-query>
 query Articles ($page: Int) {
-  articles: allArticle(sortBy: "date", order: DESC, perPage: 10, page: $page) @paginate{
+  articles: allArticle(sortBy: "published", order: DESC, perPage: 10, page: $page) @paginate{
     totalCount
     pageInfo {
       totalPages
