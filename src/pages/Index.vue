@@ -16,7 +16,7 @@
       <div class="default-gradient px-2 rounded-2xl my-image flex-shrink-0 flex-grow-0 relative">
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <div class="">
-          <g-image alt="osvaldo's face" class="relative " src="~/assets/images/osvaldo-no-bg.png" width="230px"/>
+          <g-image alt="osvaldo's headshot" class="relative " src="~/assets/images/osvaldo-no-bg.png" width="230px"/>
         </div>
       </div>
     </section>
@@ -127,7 +127,7 @@ const initIntroTextAnimation = () => {
       },2000);
 }
 
-const initActivitiesSectionAnimation = () => {
+const initResponsiveSectionAnimation = () => {
   return anime.timeline({
     loop: MAX_ANIMATION_LOOP_COUNT,
     direction: 'alternate',
@@ -222,11 +222,10 @@ export default {
     document.querySelector('.heading-area').addEventListener('mousemove', initHeadingSectionAnimation());
 
     const animators = new Map([
-        ['desktop-img', initActivitiesSectionAnimation()],
+        ['desktop-img', initResponsiveSectionAnimation()],
         ['lab-image', initLabSectionAnimation()],
         ['rocket-image', initRocketSectionAnimation()],
     ])
-    const activitiesSection = document.querySelectorAll('.feature-img');
     const io = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
@@ -244,8 +243,8 @@ export default {
           threshold: [0, 1.0]
         }
     );
-// Start observing an element
-    activitiesSection.forEach(section => io.observe(section));
+
+    document.querySelectorAll('.feature-img').forEach(section => io.observe(section));
   },
   methods: {
     showModal() {
@@ -259,11 +258,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-.ml2 {
-  //font-weight: 900;
-  //font-size: 3.5em;
-}
 
 .ml2 .letter {
   display: inline-block;
