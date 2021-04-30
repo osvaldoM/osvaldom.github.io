@@ -1,4 +1,4 @@
-![example workflow](https://github.com/osvaldom/osvaldom.github.io/actions/workflows/gridsome-build.yml/badge.svg)
+![build](https://github.com/osvaldom/osvaldom.github.io/actions/workflows/gridsome-build.yml/badge.svg)
 
 # [osvaldom.online](https://osvaldom.online/)
 

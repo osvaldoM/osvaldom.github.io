@@ -4,20 +4,21 @@
 
   <hr class="my-5"/>
 
-  <ul class="tags flex mt-10 items-center overflow-x-auto">
+  <div class="tag-list">
     <span class="mr-4">Tags:</span>
-    <li class="">
-      <g-link to="/blog" class="post-tag py-4">
-        All articles
-      </g-link>
-    </li>
-    <li class="" v-for="edge in tags" :key="edge.node.id">
-      <g-link :to="edge.node.path" class="post-tag">
-        {{ edge.node.title }}
-      </g-link>
-    </li>
-  </ul>
-
+    <transition-group name="flip-list" tag="ul">
+      <li class="" key="allArticles">
+        <g-link to="/blog" class="post-tag py-4">
+          All articles
+        </g-link>
+      </li>
+      <li class="" v-for="edge in tags" :key="edge.node.id">
+        <g-link :to="edge.node.path" class="post-tag">
+          {{ edge.node.title }}
+        </g-link>
+      </li>
+    </transition-group>
+  </div>
   <div class="content mt-10">
     <post-list v-bind:posts="$page.tag.belongsTo.edges"></post-list>
   </div>
@@ -97,11 +98,5 @@ export default {
 </script>
 
 <style scoped>
-.post-tag {
-  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
-}
 
-.post-tag.active--exact {
-  @apply bg-gray-800 text-white;
-}
 </style>

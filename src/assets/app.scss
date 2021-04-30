@@ -71,6 +71,30 @@ body.modal-open{
   height: auto;
   width: 30px;
 }
+
+.post-tag {
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 inline-block whitespace-nowrap;
+}
+
+.post-tag.active--exact {
+  @apply bg-gray-800 text-white;
+}
+.post-tag {
+  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5;
+}
+
+.post-tag.active--exact {
+  @apply bg-gray-800 text-white;
+}
+
+.flip-list-move {
+  transition: transform .5s;
+}
+
+.tag-list ul {
+  @apply flex mt-10 items-center overflow-x-auto;
+}
+
 @media screen and (min-width: 1280px){
   .success-message-svg {
     width: 300px;

@@ -88,12 +88,5 @@ export default {
 
 //@import 'prismjs/themes/prism.css';
 
-.post-tag {
-  @apply rounded-full bg-gray-200 mr-2 px-4 py-1.5 inline-block whitespace-nowrap;
-}
-
-.post-tag.active--exact {
-  @apply bg-gray-800 text-white;
-}
 
 </style>
