@@ -17,18 +17,18 @@
         <nav class="nav xl:-mr-24 w-full xl:w-auto">
           <ul class="flex justify-between">
             <li class="nav__item">
-              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/" >
+              <g-link v-preload class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" exact to="/"  event="">
                 <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/home.svg" width="30" />
                 Home
               </g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/">
+              <g-link v-preload class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/portfolio/" event="">
                 <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/briefcase.svg" width="30" />
                 Portfolio</g-link>
             </li>
             <li class="nav__item">
-              <g-link class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/">
+              <g-link v-preload class="nav__link block font-semibold transition-all delay-75 duration-500 ease-in-out" to="/blog/" event="">
                 <img class="mx-auto block focus:outline-none xl:hidden" svg-inline src="~/assets/icons/book-open.svg" width="30" />
                 Blog</g-link>
             </li>
@@ -70,8 +70,9 @@ query {
 import { gsap } from "gsap";
 import {throttle} from 'lodash-es'
 import {addEventListenerList, screenToSVG} from "../util/Util";
+import {preload} from "../directives";
 
-const initPullArrow = () => {
+const initPullArrow = ($router) => {
   const svg = document.querySelector('.striker-svg');
   const $arrowContainer = document.querySelector('.striker-container');
   const center = [
@@ -103,6 +104,8 @@ const initPullArrow = () => {
     } else if(event.type === 'mouseout') {
       tl.reverse();
     } else if(event.type === 'click') {
+      event.preventDefault();
+      event.stopImmediatePropagation();
       let tween1 = gsap.to($topLine, {svgOrigin: `${topCircleCenter.join(' ')}`, duration:0.4, rotation: `-15`}, 0);
       let tween2 = gsap.to($bottomLine, {svgOrigin: `${bottomCircleCenter.join(' ')}`, duration:0.4, rotation: `15`}, 0);
 
@@ -127,6 +130,8 @@ const initPullArrow = () => {
           tl.remove(tween2);
           tl.pause(0);
           isExecutingUnstoppableAnimation = false;
+          //preload endepoint
+          $router.push(new URL(event.target.href).pathname);
           event.target.classList.add('active--exact')
         }
       });
@@ -149,11 +154,14 @@ export default {
   name: "App",
   created() {
   },
+  directives: {
+    preload
+  },
   mounted() {
     gsap.set('.arrow-group', {transformOrigin: "50% 50%"});
 
     const $linkList = document.querySelectorAll('.nav__link');
-    const pullArrow = initPullArrow();
+    const pullArrow = initPullArrow(this.$router);
     addEventListenerList($linkList, 'mouseover', pullArrow);
     addEventListenerList($linkList, 'mouseout', pullArrow);
     addEventListenerList($linkList, 'click', pullArrow);
