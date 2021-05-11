@@ -4,7 +4,7 @@ export const preload = ({
             console.error('preload directive added to non-link element');
             return;
         }
-        if(el.href == window.location.href)
+        if(el.href === window.location.href)
             return;
         el.addEventListener('mouseover', ({target}) => {
             fetch(target.href)
