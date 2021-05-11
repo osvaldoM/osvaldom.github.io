@@ -70,6 +70,7 @@ module.exports = {
     },
   },
   chainWebpack: config => {
+    console.log(config.loaders);
     config.module
         .rule("vue")
         .use("vue-svg-inline-loader")
@@ -79,6 +80,12 @@ module.exports = {
           svgo: true,
           // verbose: true
         });
+    config.module
+        .rule('avif') //create a named rule
+        .test(/\.avif/) //define the file test
+        .use("file-loader")  //create a named use
+        .loader('file-loader') //assign a loader
+        .end();  //back up to define another use, e.g. you could do .end().use()....
     // config
     //     .plugin('BundleAnalyzerPlugin')
     //     .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
