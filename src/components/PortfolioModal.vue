@@ -52,68 +52,26 @@
                 <h2 class="">
                   main features
                 </h2>
-                <h3>for candidates</h3>
+<!--                <h3>for candidates</h3>-->
                 <ul class="stack-list">
-                  <li class="stack-list-item">View Vacancies</li>
-                  <li class="stack-list-item">Send and view applications</li>
-                  <li class="stack-list-item">Create online cv and export as PDF</li>
+                  <li class="stack-list__item">View Vacancies</li>
+                  <li class="stack-list__item">Send and view applications</li>
+                  <li class="stack-list__item">Create online cv and export as PDF</li>
                 </ul>
 
-                <h3>for companies</h3>
+<!--                <h3>for companies</h3>-->
                 <ul class="stack-list">
-                  <li class="stack-list-item">Post vacancies</li>
-                  <li class="stack-list-item">Filter candidates</li>
-                  <li class="stack-list-item">Create custom application questionnaires</li>
+                  <li class="stack-list__item">Post vacancies</li>
+                  <li class="stack-list__item">Filter candidates</li>
+                  <li class="stack-list__item">Create custom application questionnaires</li>
                 </ul>
-                <h3>for sales and content managers</h3>
+<!--                <h3>for sales and content managers</h3>-->
                 <ul class="stack-list">
-                  <li class="stack-list-item">Content management system</li>
-                  <li class="stack-list-item">Transactional emails</li>
+                  <li class="stack-list__item">Content management system</li>
+                  <li class="stack-list__item">Transactional emails</li>
                 </ul>
               </div>
             </section>
-<!--            <section class="portfolio-item emprego-item flex" id="emprego-details">-->
-<!--              <div class="portfolio-item-section">-->
-<!--                <h2 class="text-5xl text-white">Screens</h2>-->
-<!--                <div class="carousel">-->
-<!--                  <carousel autoplay arrows-outside bullets-outside transition-speed="400" 3d>-->
-<!--                    <slide>-->
-<!--                      <template v-slot:content>-->
-<!--                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>-->
-<!--                      </template>-->
-<!--                    </slide>-->
-<!--                    <slide>-->
-<!--                      <template v-slot:content>-->
-<!--                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>-->
-<!--                      </template>-->
-<!--                    </slide>-->
-<!--                  </carousel>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="text-white">-->
-<!--                <h2 class="">-->
-<!--                  Main features-->
-<!--                </h2>-->
-<!--                <h3>For candidates</h3>-->
-<!--                <ul class="stack-list">-->
-<!--                  <li class="stack-list-item">View Vacancies</li>-->
-<!--                  <li class="stack-list-item">Send and view applications</li>-->
-<!--                  <li class="stack-list-item">Create online cv and export as PDF</li>-->
-<!--                </ul>-->
-
-<!--                <h3>For companies</h3>-->
-<!--                <ul class="stack-list">-->
-<!--                  <li class="stack-list-item">Post vacancies</li>-->
-<!--                  <li class="stack-list-item">Filter candidates</li>-->
-<!--                  <li class="stack-list-item">Create custom application questionnaires</li>-->
-<!--                </ul>-->
-<!--                <h3>For sales and content managers</h3>-->
-<!--                <ul class="stack-list">-->
-<!--                  <li class="stack-list-item">Content management system</li>-->
-<!--                  <li class="stack-list-item">Transactional emails</li>-->
-<!--                </ul>-->
-<!--              </div>-->
-<!--            </section>-->
           </div>
           <div id="biscate-section" class="horizontal-sliders">
             <section class="portfolio-item biscate-item flex" id="biscate-main">
@@ -235,6 +193,28 @@ export default {
 :root {
   --emprego-primary: #499769;
   --biscate-primary: #ba0000;
+}
+.stack-list {
+  margin-bottom: 1rem;
+  &__item {
+    display: flex;
+    margin-left: .6rem;
+    margin-bottom: .4rem;
+    z-index: 2;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+      background: #ffff00a3;
+      margin-right: .6rem;
+      //position: relative;
+      left: .6rem;
+      border-radius: 33% 67% 65% 35%/46% 62% 38% 54%;
+    }
+  }
 }
 
 .carousel {
