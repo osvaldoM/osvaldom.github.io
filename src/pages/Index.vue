@@ -179,7 +179,6 @@ const initLabSectionAnimation = () => {
       begin: function(anim) {
           if(loopCount < MAX_ANIMATION_LOOP_COUNT) {
             setTimeout(() => {
-              console.log('maan');
               const clones = Array.from(labImageCircles, node => node.cloneNode(true));
               const svg = labImageCircles.item(0).parentNode;
               svg.append(...clones);

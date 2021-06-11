@@ -43,23 +43,43 @@
               <p class="text-white font-bold">The biggest job portal in Mozambique with more than
                 <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits</p>
 
-              <div class="w-1/2">
-              <carousel :autoplay="true" :scrollPerPage="false" :autoplayTimeout="1000" :loop="true" ref="slide">
+              <div class="">
+              <carousel autoplay arrows-outside bullets-outside transition-speed="400" 3d>
                 <slide>
-                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                  <template v-slot:content>
+                    <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                  </template>
                 </slide>
                 <slide>
-                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                  <template v-slot:content>
+                    <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                  </template>
                 </slide>
-                <slide>
-                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
-                </slide>
-                <slide>
-                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
-                </slide>
-                <slide></slide>
               </carousel>
               </div>
+            </div>
+            <div class="text-white">
+              <h2 class="text-5xl">
+                Main features
+              </h2>
+              <h3>For candidates</h3>
+              <ul class="stack-list">
+                <li class="stack-list-item">See jobs list</li>
+                <li class="stack-list-item">Send and view application</li>
+                <li class="stack-list-item">Create online cv and export as PDF</li>
+              </ul>
+
+              <h3>For companies</h3>
+              <ul class="stack-list">
+                <li class="stack-list-item">Post vacancies</li>
+                <li class="stack-list-item">Filter candidates</li>
+                <li class="stack-list-item">Create custom application questionnaires</li>
+              </ul>
+              <h3>For content managers</h3>
+              <ul class="stack-list">
+                <li class="stack-list-item">CMS</li>
+                <li class="stack-list-item">CRM</li>
+              </ul>
             </div>
           </section>
         </div>
@@ -137,7 +157,10 @@ import BaseModal from "./base-components/BaseModal";
 
 import smoothscroll from 'smoothscroll-polyfill';
 
-import { Carousel, Slide } from 'vue-carousel';
+// import { Carousel, Slide } from 'vue-carousel';
+import { VueperSlides as Carousel, VueperSlide as Slide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+
 
 export default {
   name: "PortfolioModal",
@@ -160,7 +183,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.$refs.slide[0].$el.classList.add('VueCarousel-slide-active');
+      // this.$refs.slide[0].$el.classList.add('VueCarousel-slide-active');
     });
   },
   methods: {

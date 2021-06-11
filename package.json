@@ -20,7 +20,8 @@
     "prismjs": "^1.23.0",
     "smoothscroll-polyfill": "^0.4.4",
     "tailwindcss": "^2.0.3",
-    "vue-gtag": "^1.14.0"
+    "vue-gtag": "^1.14.0",
+    "vueperslides": "^2.15.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
