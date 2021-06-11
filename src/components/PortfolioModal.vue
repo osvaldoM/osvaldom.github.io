@@ -13,32 +13,8 @@
                   <a class="external-link" target="_blank" href="https://www.emprego.co.mz"> emprego.co.mz</a>
                 </h2>
                 <p class="text-white font-bold">The biggest job portal in Mozambique with more than
-                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits</p>
-                <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" style="content-visibility: auto; height: auto;"
-                         class="shadow-2xl max-w-full"></g-image>
-              </div>
-              <div class="portfolio-item-section flex flex-col justify-center text-white">
-                <div class="">
-                  <img alt="See more" class="horizontal-navigation-arrow portfolio-details-arrow-right bounce-right" height="100px" width="100px"
-                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#emprego-details')"/>
-                </div>
-                <h2 class="text-5xl">
-                  tech stack
-                </h2>
-                <ul class="stack-list">
-                  <li class="stack-list-item">Php backend + Wordpress custom theme</li>
-                  <li class="stack-list-item">Apache + nginx</li>
-                  <li class="stack-list-item">AWS</li>
-                  <li class="stack-list-item">Backbone</li>
-                  <li class="stack-list-item">SCSS</li>
-                  <li class="stack-list-item">GULP + deployer</li>
-                  <li class="stack-list-item">Apache cordova</li>
-                </ul>
-              </div>
-            </section>
-            <section class="portfolio-item emprego-item flex" id="emprego-details">
-              <div class="portfolio-item-section">
-                <h2 class="text-5xl text-white">Screens</h2>
+                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
+                </p>
                 <div class="carousel">
                   <carousel autoplay arrows-outside bullets-outside transition-speed="400" 3d>
                     <slide>
@@ -54,30 +30,90 @@
                   </carousel>
                 </div>
               </div>
-              <div class="text-white">
+              <div class="portfolio-item-section flex flex-col justify-center text-white">
+                <div class="navigation-arrow__container">
+                  <img alt="See more" class="navigation-arrow navigation-arrow--down bounce-bottom" height="100px" width="100px"
+                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                  <img alt="See more" class="navigation-arrow navigation-arrow--up bounce-top" height="100px" width="100px"
+                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                </div>
                 <h2 class="">
-                  Main features
+                  tech stack
                 </h2>
-                <h3>For candidates</h3>
+                <ul class="stack-list">
+                  <li class="stack-list__item">Php backend + Wordpress custom theme</li>
+                  <li class="stack-list__item">Apache + nginx</li>
+                  <li class="stack-list__item">AWS</li>
+                  <li class="stack-list__item">Backbone</li>
+                  <li class="stack-list__item">SCSS</li>
+                  <li class="stack-list__item">GULP + deployer</li>
+                  <li class="stack-list__item">Apache cordova</li>
+                </ul>
+                <h2 class="">
+                  main features
+                </h2>
+                <h3>for candidates</h3>
                 <ul class="stack-list">
                   <li class="stack-list-item">View Vacancies</li>
                   <li class="stack-list-item">Send and view applications</li>
                   <li class="stack-list-item">Create online cv and export as PDF</li>
                 </ul>
 
-                <h3>For companies</h3>
+                <h3>for companies</h3>
                 <ul class="stack-list">
                   <li class="stack-list-item">Post vacancies</li>
                   <li class="stack-list-item">Filter candidates</li>
                   <li class="stack-list-item">Create custom application questionnaires</li>
                 </ul>
-                <h3>For sales and content managers</h3>
+                <h3>for sales and content managers</h3>
                 <ul class="stack-list">
                   <li class="stack-list-item">Content management system</li>
                   <li class="stack-list-item">Transactional emails</li>
                 </ul>
               </div>
             </section>
+<!--            <section class="portfolio-item emprego-item flex" id="emprego-details">-->
+<!--              <div class="portfolio-item-section">-->
+<!--                <h2 class="text-5xl text-white">Screens</h2>-->
+<!--                <div class="carousel">-->
+<!--                  <carousel autoplay arrows-outside bullets-outside transition-speed="400" 3d>-->
+<!--                    <slide>-->
+<!--                      <template v-slot:content>-->
+<!--                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>-->
+<!--                      </template>-->
+<!--                    </slide>-->
+<!--                    <slide>-->
+<!--                      <template v-slot:content>-->
+<!--                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>-->
+<!--                      </template>-->
+<!--                    </slide>-->
+<!--                  </carousel>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="text-white">-->
+<!--                <h2 class="">-->
+<!--                  Main features-->
+<!--                </h2>-->
+<!--                <h3>For candidates</h3>-->
+<!--                <ul class="stack-list">-->
+<!--                  <li class="stack-list-item">View Vacancies</li>-->
+<!--                  <li class="stack-list-item">Send and view applications</li>-->
+<!--                  <li class="stack-list-item">Create online cv and export as PDF</li>-->
+<!--                </ul>-->
+
+<!--                <h3>For companies</h3>-->
+<!--                <ul class="stack-list">-->
+<!--                  <li class="stack-list-item">Post vacancies</li>-->
+<!--                  <li class="stack-list-item">Filter candidates</li>-->
+<!--                  <li class="stack-list-item">Create custom application questionnaires</li>-->
+<!--                </ul>-->
+<!--                <h3>For sales and content managers</h3>-->
+<!--                <ul class="stack-list">-->
+<!--                  <li class="stack-list-item">Content management system</li>-->
+<!--                  <li class="stack-list-item">Transactional emails</li>-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </section>-->
           </div>
           <div id="biscate-section" class="horizontal-sliders">
             <section class="portfolio-item biscate-item flex" id="biscate-main">
@@ -107,6 +143,7 @@
                   <li class="stack-list-item">SCSS</li>
                   <li class="stack-list-item">GULP + deployer</li>
                   <li class="stack-list-item">Apache cordova</li>
+                  <li class="stack-list-item">Sentry</li>
                 </ul>
               </div>
             </section>
@@ -141,8 +178,6 @@
               </div>
             </section>
           </div>
-          <img alt="See more" class="vertical-navigation-arrow go-down bounce-top text-white" height="100px" width="100px"
-               src="~/assets/icons/chevron-down.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
         </div>
       </section>
     </base-modal>
@@ -250,19 +285,38 @@ a[target="_blank"]::after {
   margin: 0 3px 0 5px;
 }
 
+
+.navigation-arrow {
+  cursor: pointer;
+  &__container {
+    position: absolute;
+    display: flex;
+    bottom: 5%;
+    right: 40px;
+  }
+  &--down {
+    path {
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: rotate(90deg);
+    }
+  }
+  &--up {
+    path {
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: rotate(-90deg);
+    }
+  }
+  &:hover {
+    border: 2px solid white;
+    border-radius: 50%;
+  }
+}
 .horizontal-navigation-arrow {
   position: absolute;
   top: 20%;
   cursor: pointer;
-}
-
-.vertical-navigation-arrow {
-  position: absolute;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
 }
 
 .go-down {
@@ -292,6 +346,9 @@ a[target="_blank"]::after {
 .bounce-top {
   animation: bounce-top .5s infinite alternate;
 }
+.bounce-bottom {
+  animation: bounce-bottom .5s infinite alternate;
+}
 
 @keyframes bounce-right {
   from {
@@ -308,6 +365,14 @@ a[target="_blank"]::after {
   }
   to {
     transform: translateY(-15px);
+  }
+}
+@keyframes bounce-bottom {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(15px);
   }
 }
 
