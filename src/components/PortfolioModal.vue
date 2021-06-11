@@ -43,25 +43,23 @@
               <p class="text-white font-bold">The biggest job portal in Mozambique with more than
                 <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits</p>
 
-              <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" style="content-visibility: auto; height: auto;" class="shadow-2xl max-w-full"></g-image>
-            </div>
-            <div class="portfolio-item-section flex flex-col justify-center text-white">
-              <div class="">
-                <img alt="See more" class="horizontal-navigation-arrow portfolio-details-arrow-left bounce-right" height="100px" width="100px"
-                     src="~/assets/icons/arrow-circle-left.svg" svg-inline @click="scrollIntoView('#emprego-main')"/>
+              <div class="w-1/2">
+              <carousel :autoplay="true" :scrollPerPage="false" :autoplayTimeout="1000" :loop="true" ref="slide">
+                <slide>
+                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                </slide>
+                <slide>
+                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                </slide>
+                <slide>
+                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                </slide>
+                <slide>
+                  <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="shadow-2xl max-w-full"></g-image>
+                </slide>
+                <slide></slide>
+              </carousel>
               </div>
-              <h2 class="text-5xl">
-                tech stack
-              </h2>
-              <ul class="stack-list">
-                <li class="stack-list-item">Php backend + Wordpress custom theme</li>
-                <li class="stack-list-item">Apache + nginx</li>
-                <li class="stack-list-item">AWS</li>
-                <li class="stack-list-item">Backbone</li>
-                <li class="stack-list-item">SCSS</li>
-                <li class="stack-list-item">GULP + deployer</li>
-                <li class="stack-list-item">Apache cordova</li>
-              </ul>
             </div>
           </section>
         </div>
@@ -139,9 +137,14 @@ import BaseModal from "./base-components/BaseModal";
 
 import smoothscroll from 'smoothscroll-polyfill';
 
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
   name: "PortfolioModal",
-  components: {BaseModal},
+  components: {
+    BaseModal,
+    Carousel,
+    Slide},
   props: {
     isModalVisible : {
       type: Boolean,
@@ -156,6 +159,9 @@ export default {
     smoothscroll.polyfill();
   },
   mounted() {
+    this.$nextTick(() => {
+      this.$refs.slide[0].$el.classList.add('VueCarousel-slide-active');
+    });
   },
   methods: {
     scrollIntoView(target) {
