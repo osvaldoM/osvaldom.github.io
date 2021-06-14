@@ -16,7 +16,7 @@
                   <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
                 </p>
                 <div class="carousel">
-                  <carousel autoplay arrows-outside bullets-outside transition-speed="400" 3d>
+                  <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
                     <slide>
                       <template v-slot:content>
                         <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>
@@ -32,10 +32,14 @@
               </div>
               <div class="portfolio-item-section flex flex-col justify-center text-white">
                 <div class="navigation-arrow__container">
-                  <img alt="See more" class="navigation-arrow navigation-arrow--down bounce-bottom" height="100px" width="100px"
-                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
-                  <img alt="See more" class="navigation-arrow navigation-arrow--up bounce-top" height="100px" width="100px"
-                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                  <button aria-label="go to next portfolio item">
+                    <img alt="See more" class="navigation-arrow navigation-arrow--down bounce-bottom"
+                         src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                  </button>
+                  <button aria-label="go to next previous portfolio item">
+                    <img alt="See more" class="navigation-arrow navigation-arrow--up bounce-top" height="100px"
+                         src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                  </button>
                 </div>
                 <h2 class="">
                   tech stack
@@ -43,7 +47,7 @@
                 <ul class="stack-list">
                   <li class="stack-list__item">Php backend + Wordpress custom theme</li>
                   <li class="stack-list__item">Apache + nginx</li>
-                  <li class="stack-list__item">AWS</li>
+                  <li class="stack-list__item">AWS + GCP</li>
                   <li class="stack-list__item">Backbone</li>
                   <li class="stack-list__item">SCSS</li>
                   <li class="stack-list__item">GULP + deployer</li>
@@ -96,7 +100,7 @@
                 <ul class="stack-list">
                   <li class="stack-list-item">Php backend + Wordpress custom theme</li>
                   <li class="stack-list-item">Apache + nginx</li>
-                  <li class="stack-list-item">AWS</li>
+                  <li class="stack-list-item">AWS + GCP</li>
                   <li class="stack-list-item">Backbone</li>
                   <li class="stack-list-item">SCSS</li>
                   <li class="stack-list-item">GULP + deployer</li>
@@ -210,7 +214,6 @@ export default {
       height: 1.5em;
       background: #ffff00a3;
       margin-right: .6rem;
-      //position: relative;
       left: .6rem;
       border-radius: 33% 67% 65% 35%/46% 62% 38% 54%;
     }
@@ -224,7 +227,9 @@ export default {
     @apply shadow-2xl max-w-full;
   }
 }
-
+.vueperslides__arrow {
+  color: #ffffff;
+}
 .portfolio-item {
   height: 100vh;
   padding: 40px;
@@ -268,6 +273,8 @@ a[target="_blank"]::after {
 
 .navigation-arrow {
   cursor: pointer;
+  height:3.5rem;
+  width:3.5rem;
   &__container {
     position: absolute;
     display: flex;
