@@ -11,8 +11,10 @@
   "dependencies": {
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-images": "file:../@gridsome/transformer-images",
     "@gridsome/transformer-remark": "^0.6.3",
     "animejs": "^3.2.1",
+    "assets-loader": "^0.5.2",
     "gh-pages": "^3.1.0",
     "gridsome": "^0.7.0",
     "gsap": "^3.6.0",

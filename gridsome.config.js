@@ -37,6 +37,13 @@ module.exports = {
         },
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'PortfolioImage',
+        path: 'src/assets/images/portfolio/biscate/*.png',
+      }
+    }
   ],
   transformers: {
     remark: {
@@ -50,6 +57,8 @@ module.exports = {
             transformInlineCode: true,
           }]
         ]
+    },
+    images: {
     }
     },
   templates: {

@@ -7,7 +7,7 @@
       <section slot="body">
         <div class="vertical-sliders">
           <div id="emprego-section" class="horizontal-sliders">
-            <section class="portfolio-item emprego-item flex" id="emprego-main">
+            <section class="portfolio-item emprego-item flex">
               <div class="portfolio-item-section">
                 <h2 class="text-5xl text-white">
                   <a class="external-link" target="_blank" href="https://www.emprego.co.mz"> emprego.co.mz</a>
@@ -17,14 +17,9 @@
                 </p>
                 <div class="carousel">
                   <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
-                    <slide>
+                    <slide v-for="edge in $static.biscateImages.edges" :key="edge.node.id">
                       <template v-slot:content>
-                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>
-                      </template>
-                    </slide>
-                    <slide>
-                      <template v-slot:content>
-                        <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" class="carousel__image"></g-image>
+                        <g-image :src="require(`!!assets-loader!@/${edge.node.fileInfo.path.replace('src/', '')}`)" class="carousel__image"></g-image>
                       </template>
                     </slide>
                   </carousel>
@@ -34,10 +29,6 @@
                 <div class="navigation-arrow__container">
                   <button aria-label="go to next portfolio item">
                     <img alt="See more" class="navigation-arrow navigation-arrow--down bounce-bottom"
-                         src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
-                  </button>
-                  <button aria-label="go to next previous portfolio item">
-                    <img alt="See more" class="navigation-arrow navigation-arrow--up bounce-top" height="100px"
                          src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
                   </button>
                 </div>
@@ -78,64 +69,70 @@
             </section>
           </div>
           <div id="biscate-section" class="horizontal-sliders">
-            <section class="portfolio-item biscate-item flex" id="biscate-main">
+            <section class="portfolio-item biscate-item flex">
               <div class="portfolio-item-section">
                 <h2 class="text-5xl text-white">
-                  <a class="external-link" target="_blank" href="https://www.emprego.co.mz"> emprego.co.mz</a>
+                  <a class="external-link" target="_blank" href="https://www.biscate.co.mz"> biscate.co.mz</a>
                 </h2>
                 <p class="text-white font-bold">The biggest job portal in Mozambique with more than
-                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits</p>
-
-                <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" style="content-visibility: auto; height: auto;"
-                         class="shadow-2xl max-w-full"></g-image>
+                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
+                </p>
+                <div class="carousel">
+                  <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
+                    <slide v-for="edge in $static.biscateImages.edges" :key="edge.node.id">
+                      <template v-slot:content>
+<!--                        @/assets/images/portfolio/biscate/biscate-home.png-->
+<!--                        <g-image :src="require(`!!assets-loader!@images/${edge.node.fileInfo.path}`)" class="carousel__image"></g-image>-->
+<!--                        <g-image :src="require(`!!assets-loader!@/assets/images/portfolio/biscate/biscate-home.png`)" class="carousel__image"></g-image>-->
+                        <g-image :src="require(`!!assets-loader!@/${edge.node.fileInfo.path.replace('src/', '')}`)" class="carousel__image"></g-image>
+                      </template>
+                    </slide>
+                  </carousel>
+                </div>
               </div>
               <div class="portfolio-item-section flex flex-col justify-center text-white">
-                <div class="">
-                  <img alt="See more" class="horizontal-navigation-arrow portfolio-details-arrow-right bounce-right" height="100px" width="100px"
-                       src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-details')"/>
+                <div class="navigation-arrow__container">
+                  <button aria-label="go to next portfolio item">
+                    <img alt="See more" class="navigation-arrow navigation-arrow--down bounce-bottom"
+                         src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#biscate-section')"/>
+                  </button>
+                  <button aria-label="go to next previous portfolio item">
+                    <img alt="See more" class="navigation-arrow navigation-arrow--up bounce-top" height="100px"
+                         src="~/assets/icons/arrow-circle-right.svg" svg-inline @click="scrollIntoView('#emprego-section')"/>
+                  </button>
                 </div>
-                <h2 class="text-5xl">
+                <h2 class="">
                   tech stack
                 </h2>
                 <ul class="stack-list">
-                  <li class="stack-list-item">Php backend + Wordpress custom theme</li>
-                  <li class="stack-list-item">Apache + nginx</li>
-                  <li class="stack-list-item">AWS + GCP</li>
-                  <li class="stack-list-item">Backbone</li>
-                  <li class="stack-list-item">SCSS</li>
-                  <li class="stack-list-item">GULP + deployer</li>
-                  <li class="stack-list-item">Apache cordova</li>
-                  <li class="stack-list-item">Sentry</li>
+                  <li class="stack-list__item">Php backend + Wordpress custom theme</li>
+                  <li class="stack-list__item">Apache + nginx</li>
+                  <li class="stack-list__item">AWS + GCP</li>
+                  <li class="stack-list__item">Backbone</li>
+                  <li class="stack-list__item">SCSS</li>
+                  <li class="stack-list__item">GULP + deployer</li>
+                  <li class="stack-list__item">Apache cordova</li>
                 </ul>
-              </div>
-            </section>
-            <section class="portfolio-item flex" id="biscate-details">
-              <div class="portfolio-item-section">
-                <h2 class="text-5xl text-white">
-                  <a class="external-link" target="_blank" href="https://www.emprego.co.mz"> emprego.co.mz</a>
+                <h2 class="">
+                  main features
                 </h2>
-                <p class="text-white font-bold">The biggest job portal in Mozambique with more than
-                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits</p>
-
-                <g-image src="@/assets/images/portfolio/emprego-home.png" width="1200px" style="content-visibility: auto; height: auto;"
-                         class="shadow-2xl max-w-full"></g-image>
-              </div>
-              <div class="portfolio-item-section flex flex-col justify-center text-white">
-                <div class="">
-                  <img alt="See more" class="horizontal-navigation-arrow portfolio-details-arrow-left bounce-right" height="100px" width="100px"
-                       src="~/assets/icons/arrow-circle-left.svg" svg-inline @click="scrollIntoView('#biscate-main')"/>
-                </div>
-                <h2 class="text-5xl">
-                  tech stack
-                </h2>
+                <!--                <h3>for candidates</h3>-->
                 <ul class="stack-list">
-                  <li class="stack-list-item">Php backend + Wordpress custom theme</li>
-                  <li class="stack-list-item">Apache + nginx</li>
-                  <li class="stack-list-item">AWS</li>
-                  <li class="stack-list-item">Backbone</li>
-                  <li class="stack-list-item">SCSS</li>
-                  <li class="stack-list-item">GULP + deployer</li>
-                  <li class="stack-list-item">Apache cordova</li>
+                  <li class="stack-list__item">View Vacancies</li>
+                  <li class="stack-list__item">Send and view applications</li>
+                  <li class="stack-list__item">Create online cv and export as PDF</li>
+                </ul>
+
+                <!--                <h3>for companies</h3>-->
+                <ul class="stack-list">
+                  <li class="stack-list__item">Post vacancies</li>
+                  <li class="stack-list__item">Filter candidates</li>
+                  <li class="stack-list__item">Create custom application questionnaires</li>
+                </ul>
+                <!--                <h3>for sales and content managers</h3>-->
+                <ul class="stack-list">
+                  <li class="stack-list__item">Content management system</li>
+                  <li class="stack-list__item">Transactional emails</li>
                 </ul>
               </div>
             </section>
@@ -145,7 +142,23 @@
     </base-modal>
   </div>
 </template>
-
+<static-query>
+query {
+  biscateImages:allPortfolioImage {
+    totalCount
+    edges {
+      node {
+        path
+        fileInfo {
+          name
+          extension
+          path
+        }
+      }
+    }
+  }
+}
+</static-query>
 <script>
 import anime from "animejs";
 import BaseModal from "./base-components/BaseModal";
@@ -225,6 +238,7 @@ export default {
 
   &__image {
     @apply shadow-2xl max-w-full;
+    height: 400px;
   }
 }
 .vueperslides__arrow {
