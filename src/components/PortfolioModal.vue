@@ -79,7 +79,7 @@
                   <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
                 </p>
                 <div class="carousel">
-                  <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
+                  <carousel arrows-outside :bullets="false" transition-speed="400" 3d>
                     <slide v-for="node in biscateImages" :key="node.id">
                       <template v-slot:content>
                         <g-image :src="require(`!!assets-loader!@/${node.fileInfo.path.replace('src/', '')}`)" class="carousel__image carousel__image--biscate"></g-image>
@@ -250,7 +250,7 @@ export default {
   width: 900px;
 
   &__image {
-    @apply shadow-2xl max-w-full;
+    max-width: 100%;
     width: auto;
     &--emprego {
       background-color: var(--emprego-primary);
