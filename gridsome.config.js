@@ -41,7 +41,7 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'PortfolioImage',
-        path: 'src/assets/images/portfolio/biscate/*.png',
+        path: 'src/assets/images/portfolio/**/*.png',
       }
     }
   ],

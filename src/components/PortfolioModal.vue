@@ -16,10 +16,11 @@
                   <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
                 </p>
                 <div class="carousel">
-                  <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
-                    <slide v-for="edge in $static.biscateImages.edges" :key="edge.node.id">
+                  <carousel  arrows-outside :bullets="false" transition-speed="400" 3d>
+                    <slide v-for="node in biscateImages" :key="node.id">
                       <template v-slot:content>
-                        <g-image :src="require(`!!assets-loader!@/${edge.node.fileInfo.path.replace('src/', '')}`)" class="carousel__image"></g-image>
+                        <g-image :src="require(`!!assets-loader!@/${node.fileInfo.path.replace('src/', '')}`)"
+                                 class="carousel__image carousel__image--emprego"></g-image>
                       </template>
                     </slide>
                   </carousel>
@@ -79,12 +80,9 @@
                 </p>
                 <div class="carousel">
                   <carousel autoplay arrows-outside :bullets="false" transition-speed="400" 3d>
-                    <slide v-for="edge in $static.biscateImages.edges" :key="edge.node.id">
+                    <slide v-for="node in biscateImages" :key="node.id">
                       <template v-slot:content>
-<!--                        @/assets/images/portfolio/biscate/biscate-home.png-->
-<!--                        <g-image :src="require(`!!assets-loader!@images/${edge.node.fileInfo.path}`)" class="carousel__image"></g-image>-->
-<!--                        <g-image :src="require(`!!assets-loader!@/assets/images/portfolio/biscate/biscate-home.png`)" class="carousel__image"></g-image>-->
-                        <g-image :src="require(`!!assets-loader!@/${edge.node.fileInfo.path.replace('src/', '')}`)" class="carousel__image"></g-image>
+                        <g-image :src="require(`!!assets-loader!@/${node.fileInfo.path.replace('src/', '')}`)" class="carousel__image carousel__image--biscate"></g-image>
                       </template>
                     </slide>
                   </carousel>
@@ -144,7 +142,7 @@
 </template>
 <static-query>
 query {
-  biscateImages:allPortfolioImage {
+  portfolioImages:allPortfolioImage {
     totalCount
     edges {
       node {
@@ -188,6 +186,15 @@ export default {
   },
   created(){
     smoothscroll.polyfill();
+  },
+  computed: {
+    biscateImages() {
+      if(!this.$static.portfolioImages)
+        return [];
+      return this.$static.portfolioImages.edges
+          .filter(edge => edge.node.fileInfo.path.includes('biscate'))
+          .map(edge => edge.node);
+    }
   },
   mounted(){
     this.$nextTick(() => {
@@ -238,11 +245,20 @@ export default {
 
   &__image {
     @apply shadow-2xl max-w-full;
-    height: 400px;
+    width: auto;
+    &--emprego {
+      background-color: var(--emprego-primary);
+    }
+    &--biscate {
+      background-color: var(--biscate-primary);
+    }
   }
 }
 .vueperslides__arrow {
   color: #ffffff;
+}
+.vueperslide {
+  background-color: #ffffff;
 }
 .portfolio-item {
   height: 100vh;
