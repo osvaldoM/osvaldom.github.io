@@ -17,7 +17,7 @@
                 </p>
                 <div class="carousel">
                   <carousel  arrows-outside :bullets="false" transition-speed="400" 3d>
-                    <slide v-for="node in biscateImages" :key="node.id">
+                    <slide v-for="node in empregoImages" :key="node.id">
                       <template v-slot:content>
                         <g-image :src="require(`!!assets-loader!@/${node.fileInfo.path.replace('src/', '')}`)"
                                  class="carousel__image carousel__image--emprego"></g-image>
@@ -167,6 +167,13 @@ import smoothscroll from 'smoothscroll-polyfill';
 import {VueperSlides as Carousel, VueperSlide as Slide} from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
+const portfolioImagesByProject = (portfolioImages, projectName) => {
+  if(!portfolioImages)
+    return [];
+  return portfolioImages.edges
+      .filter(edge => edge.node.fileInfo.path.includes(projectName))
+      .map(edge => edge.node);
+}
 
 export default {
   name: "PortfolioModal",
@@ -189,11 +196,10 @@ export default {
   },
   computed: {
     biscateImages() {
-      if(!this.$static.portfolioImages)
-        return [];
-      return this.$static.portfolioImages.edges
-          .filter(edge => edge.node.fileInfo.path.includes('biscate'))
-          .map(edge => edge.node);
+      return portfolioImagesByProject(this.$static.portfolioImages, 'biscate');
+    },
+    empregoImages() {
+      return portfolioImagesByProject(this.$static.portfolioImages, 'emprego');
     }
   },
   mounted(){
