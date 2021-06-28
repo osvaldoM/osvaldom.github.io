@@ -46,11 +46,10 @@
                   <li class="stack-list__item">Apache cordova</li>
                 </ul>
                 <h2 class="">
-                  main features
+                  features
                 </h2>
                 <ul class="stack-list">
-                  <li class="stack-list__item">View Vacancies</li>
-                  <li class="stack-list__item">Send and view applications</li>
+                  <li class="stack-list__item">Apply to Vacancies</li>
                   <li class="stack-list__item">Create online cv and export as PDF</li>
                 </ul>
                 <ul class="stack-list">
@@ -71,9 +70,7 @@
                 <h2 class="text-5xl text-white">
                   <a class="external-link" target="_blank" href="https://www.biscate.co.mz"> biscate.co.mz</a>
                 </h2>
-                <p class="text-white font-bold">The biggest job portal in Mozambique with more than
-                  <strong class="text-xl">300k+</strong> active users and <strong class=" text-xl">40k+</strong> daily visits
-                </p>
+                <p class="text-white font-bold">fast and convenient service that connects informal workers to customers through an online platform.</p>
                 <div class="carousel">
                   <carousel arrows-outside :bullets="false" transition-speed="400" 3d>
                     <slide v-for="node in biscateImages" :key="node.id">
@@ -99,31 +96,21 @@
                   tech stack
                 </h2>
                 <ul class="stack-list">
-                  <li class="stack-list__item">Php backend + Wordpress custom theme</li>
-                  <li class="stack-list__item">Apache + nginx</li>
-                  <li class="stack-list__item">AWS + GCP</li>
+                  <li class="stack-list__item">Php backend + node-smpp</li>
+                  <li class="stack-list__item">Apache + nginx + pm2</li>
+                  <li class="stack-list__item">AWS</li>
                   <li class="stack-list__item">Backbone</li>
                   <li class="stack-list__item">SCSS</li>
-                  <li class="stack-list__item">GULP + deployer</li>
                   <li class="stack-list__item">Apache cordova</li>
                 </ul>
                 <h2 class="">
-                  main features
+                  features
                 </h2>
                 <ul class="stack-list">
-                  <li class="stack-list__item">View Vacancies</li>
-                  <li class="stack-list__item">Send and view applications</li>
-                  <li class="stack-list__item">Create online cv and export as PDF</li>
-                </ul>
-
-                <ul class="stack-list">
-                  <li class="stack-list__item">Post vacancies</li>
-                  <li class="stack-list__item">Filter candidates</li>
-                  <li class="stack-list__item">Create custom application questionnaires</li>
-                </ul>
-                <ul class="stack-list">
-                  <li class="stack-list__item">Content management system</li>
-                  <li class="stack-list__item">Transactional emails</li>
+                  <li class="stack-list__item">Search for workers</li>
+                  <li class="stack-list__item">Automatic matching of worker with job</li>
+                  <li class="stack-list__item">Hire and rate worker</li>
+                  <li class="stack-list__item">Multi-platform access(web + mobile + USSD)</li>
                 </ul>
               </div>
             </section>
