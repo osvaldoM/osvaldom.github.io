@@ -5,7 +5,7 @@
 
       </section>
       <section slot="body">
-        <div class="vertical-sliders">
+        <div class="vertical-sliders" ref="vertical-sliders-container">
           <div id="emprego-section" class="horizontal-sliders">
             <section class="portfolio-item emprego-item flex">
               <div class="portfolio-item-section">
@@ -48,20 +48,16 @@
                 <h2 class="">
                   main features
                 </h2>
-<!--                <h3>for candidates</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">View Vacancies</li>
                   <li class="stack-list__item">Send and view applications</li>
                   <li class="stack-list__item">Create online cv and export as PDF</li>
                 </ul>
-
-<!--                <h3>for companies</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">Post vacancies</li>
                   <li class="stack-list__item">Filter candidates</li>
                   <li class="stack-list__item">Create custom application questionnaires</li>
                 </ul>
-<!--                <h3>for sales and content managers</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">Content management system</li>
                   <li class="stack-list__item">Transactional emails</li>
@@ -114,20 +110,17 @@
                 <h2 class="">
                   main features
                 </h2>
-                <!--                <h3>for candidates</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">View Vacancies</li>
                   <li class="stack-list__item">Send and view applications</li>
                   <li class="stack-list__item">Create online cv and export as PDF</li>
                 </ul>
 
-                <!--                <h3>for companies</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">Post vacancies</li>
                   <li class="stack-list__item">Filter candidates</li>
                   <li class="stack-list__item">Create custom application questionnaires</li>
                 </ul>
-                <!--                <h3>for sales and content managers</h3>-->
                 <ul class="stack-list">
                   <li class="stack-list__item">Content management system</li>
                   <li class="stack-list__item">Transactional emails</li>
@@ -163,7 +156,6 @@ import BaseModal from "./base-components/BaseModal";
 
 import smoothscroll from 'smoothscroll-polyfill';
 
-// import { Carousel, Slide } from 'vue-carousel';
 import {VueperSlides as Carousel, VueperSlide as Slide} from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -203,9 +195,6 @@ export default {
     }
   },
   mounted(){
-    this.$nextTick(() => {
-      // this.$refs.slide[0].$el.classList.add('VueCarousel-slide-active');
-    });
   },
   methods: {
     scrollIntoView(target){
@@ -411,6 +400,6 @@ a[target="_blank"]::after {
   flex-direction: column;
   height: 100vh;
   flex-shrink: 0;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 </style>
